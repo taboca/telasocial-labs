@@ -1,0 +1,15 @@
+    textarea {
+      border:0px; border-radius:9px;
+      padding:1em; 
+      background-image: -moz-radial-gradient(center center, #00e, #008);  
+      background-image: -webkit-radial-gradient(center center, #00e, #008);  
+      color:white;
+      width:640px; 
+      height:200px;
+    }
+    iframe { 
+       width:640px;
+       height:1px;
+       border:1;
+       border-radius:9px; 
+    } 

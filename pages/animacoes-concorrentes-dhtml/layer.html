@@ -1,0 +1,426 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta id="Producer" content="taboca producers(taboca@taboca.com)">
+<title>Taboca ArtworK</title>
+
+<style>
+  div { position:absolute } 
+</style>
+
+</head>
+
+<body onload="javascript:start()" bgcolor="#000000" link="#2D5D96" text="#ddaaff">
+
+<embed src="res/ts2.wav" autostart="true" play="auto" height="0" hidden="" width="0">
+
+<div id="tittle" style="position:absolute;top:80px;left:80px;visibility:hidden">
+<img src="res/tstittle.jpg">
+</div>
+
+<div id="factory_mask" style="position:absolute;top:80px;left:80px;visibility:hidden">
+<img src="res/fmask.gif">
+</div> 
+
+<div id="tp1" style="position:absolute;left:360px;top:165px;visibility:hidden">
+<img id="trim" src="res/t5.gif" height="9" width="10">
+</div>
+<div id="tp2" style="position:absolute;left:360px;top:165px;visibility:hidden">
+<img id="trim" src="res/t5.gif" height="17" width="20">
+</div>
+<div id="tp3" style="position:absolute;left:360px;top:165px;visibility:hidden">
+<img id="trim" src="res/t5.gif" height="35" width="40">
+</div>
+<div id="tp4" style="position:absolute;left:360px;top:165px;visibility:hidden">
+<img id="trim" src="res/t5.gif" height="70" width="80">
+</div>
+<div id="tp5" style="position:absolute;left:360px;top:165px;visibility:hidden">
+<img id="trim" src="res/t5.gif" height="140" width="160">
+</div>
+<div id="tp6" style="position:absolute;left:360px;top:165px;visibility:hidden">
+<img id="trim" src="res/t5.gif" height="279" width="320">
+</div>
+
+
+<div id="a01" style="visibility:hidden">
+<span style="font-size:200px;color:#000000" face="sans-serif">
+W
+</span>
+</div>
+<div id="a02" style="visibility:hidden">
+<span style="font-size:150px;color:#200000" face="sans-serif">
+W
+</span>
+</div>
+<div id="a03" style="visibility:hidden">
+<span style="font-size:100px;color:#400000" face="sans-serif">
+W
+</span>
+</div>
+<div id="a04" style="visibility:hidden">
+<span style="font-size:70px;color:#800000" face="sans-serif">
+W
+</span>
+</div>
+<div id="a05" style="visibility:hidden">
+<span style="font-size:40px;color:#BB0000" face="sans-serif">
+W
+</span>
+</div>
+<div id="a06" style="visibility:hidden">
+<span style="font-size:20px;color:#ff0000" face="sans-serif">
+W
+</span>
+</div>
+
+<div id="a11" visilibity="hidden">
+<span style="font-size:200px;color:#000000" face="sans-serif">
+e
+</span>
+</div>
+<div id="a12" style="visibility:hidden">
+<span style="font-size:150px;color:#200000" face="sans-serif">
+e
+</span>
+</div>
+<div id="a13" style="visibility:hidden">
+<span style="font-size:100px;color:#400000" face="sans-serif">
+e
+</span>
+</div>
+<div id="a14" style="visibility:hidden">
+<span style="font-size:70px;color:#800000" face="sans-serif">
+e
+</span>
+</div>
+<div id="a15" style="visibility:hidden">
+<span style="font-size:40px;color:#BB0000" face="sans-serif">
+e
+</span>
+</div>
+<div id="a16" style="visibility:hidden">
+<span style="font-size:20px;color:#ff0000" face="sans-serif">
+e
+</span>
+</div>
+
+<div id="a21" visilibity="hidden">
+<span style="font-size:200px;color:#000000" face="sans-serif">
+l
+</span>
+</div>
+<div id="a22" style="visibility:hidden">
+<span style="font-size:150px;color:#200000" face="sans-serif">
+l
+</span>
+</div>
+<div id="a23" style="visibility:hidden">
+<span style="font-size:100px;color:#400000" face="sans-serif">
+l
+</span>
+</div>
+<div id="a24" style="visibility:hidden">
+<span style="font-size:70px;color:#800000" face="sans-serif">
+l
+</span>
+</div>
+<div id="a25" style="visibility:hidden">
+<span style="font-size:40px;color:#BB0000" face="sans-serif">
+l
+</span>
+</div>
+<div id="a26" style="visibility:hidden">
+<span style="font-size:20px;color:#ff0000" face="sans-serif">
+l
+</span>
+</div>
+
+<div id="a31" visilibity="hidden">
+<span style="font-size:200px;color:#000000" face="sans-serif">
+c
+</span>
+</div>
+<div id="a32" style="visibility:hidden">
+<span style="font-size:150px;color:#200000" face="sans-serif">
+c
+</span>
+</div>
+<div id="a33" style="visibility:hidden">
+<span style="font-size:100px;color:#400000" face="sans-serif">
+c
+</span>
+</div>
+<div id="a34" style="visibility:hidden">
+<span style="font-size:70px;color:#800000" face="sans-serif">
+c
+</span>
+</div>
+<div id="a35" style="visibility:hidden">
+<span style="font-size:40px;color:#BB0000" face="sans-serif">
+c
+</span>
+</div>
+<div id="a36" style="visibility:hidden">
+<span style="font-size:20px;color:#ff0000" face="sans-serif">
+c
+</span>
+</div>
+
+<div id="a41" visilibity="hidden">
+<span style="font-size:200px;color:#000000" face="sans-serif">
+o
+</span>
+</div>
+<div id="a42" style="visibility:hidden">
+<span style="font-size:150px;color:#200000" face="sans-serif">
+o
+</span>
+</div>
+<div id="a43" style="visibility:hidden">
+<span style="font-size:100px;color:#400000" face="sans-serif">
+o
+</span>
+</div>
+<div id="a44" style="visibility:hidden">
+<span style="font-size:70px;color:#800000" face="sans-serif">
+o
+</span>
+</div>
+<div id="a45" style="visibility:hidden">
+<span style="font-size:40px;color:#BB0000" face="sans-serif">
+o
+</span>
+</div>
+<div id="a46" style="visibility:hidden">
+<span style="font-size:20px;color:#ff0000" face="sans-serif">
+o
+</span>
+</div>
+
+<div id="a51" visilibity="hidden">
+<span style="font-size:200px;color:#000000" face="sans-serif">
+m
+</span>
+</div>
+<div id="a52" style="visibility:hidden">
+<span style="font-size:150px;color:#200000" face="sans-serif">
+m
+</span>
+</div>
+<div id="a53" style="visibility:hidden">
+<span style="font-size:100px;color:#400000" face="sans-serif">
+m
+</span>
+</div>
+<div id="a54" style="visibility:hidden">
+<span style="font-size:70px;color:#800000" face="sans-serif">
+m
+</span>
+</div>
+<div id="a55" style="visibility:hidden">
+<span style="font-size:40px;color:#BB0000" face="sans-serif">
+m
+</span>
+</div>
+<div id="a56" style="visibility:hidden">
+<span style="font-size:20px;color:#ff0000" face="sans-serif">
+m
+</span>
+</div>
+
+<div id="a61" visilibity="hidden">
+<span style="font-size:200px;color:#000000" face="sans-serif">
+m
+</span>
+</div>
+<div id="a62" style="visibility:hidden">
+<span style="font-size:150px;color:#200000" face="sans-serif">
+e
+</span>
+</div>
+<div id="a63" style="visibility:hidden">
+<span style="font-size:100px;color:#400000" face="sans-serif">
+e
+</span>
+</div>
+<div id="a64" style="visibility:hidden">
+<span style="font-size:70px;color:#800000" face="sans-serif">
+e
+</span>
+</div>
+<div id="a65" style="visibility:hidden">
+<span style="font-size:40px;color:#BB0000" face="sans-serif">
+e
+</span>
+</div>
+<div id="a66" style="visibility:hidden">
+<span style="font-size:20px;color:#ff0000" face="sans-serif">
+e
+</span>
+</div>
+
+
+<div id="a71" visilibity="hidden">
+<span style="font-size:200px;color:#000000" face="sans-serif">
+t
+</span>
+</div>
+<div id="a72" style="visibility:hidden">
+<span style="font-size:150px;color:#200000" face="sans-serif">
+t
+</span>
+</div>
+<div id="a73" style="visibility:hidden">
+<span style="font-size:100px;color:#400000" face="sans-serif">
+t
+</span>
+</div>
+<div id="a74" style="visibility:hidden">
+<span style="font-size:70px;color:#800000" face="sans-serif">
+t
+</span>
+</div>
+<div id="a75" style="visibility:hidden">
+<span style="font-size:40px;color:#BB0000" face="sans-serif">
+t
+</span>
+</div>
+<div id="a76" style="visibility:hidden">
+<span style="font-size:20px;color:#ff0000" face="sans-serif">
+t
+</span>
+</div>
+
+
+<div id="a81" visilibity="hidden">
+<span style="font-size:200px;color:#000000" face="sans-serif">
+o
+</span>
+</div>
+<div id="a82" style="visibility:hidden">
+<span style="font-size:150px;color:#200000" face="sans-serif">
+o
+</span>
+</div>
+<div id="a83" style="visibility:hidden">
+<span style="font-size:100px;color:#400000" face="sans-serif">
+o
+</span>
+</div>
+<div id="a84" style="visibility:hidden">
+<span style="font-size:70px;color:#800000" face="sans-serif">
+o
+</span>
+</div>
+<div id="a85" style="visibility:hidden">
+<span style="font-size:40px;color:#BB0000" face="sans-serif">
+o
+</span>
+</div>
+<div id="a86" style="visibility:hidden">
+<span style="font-size:20px;color:#ff0000" face="sans-serif">
+o
+</span>
+</div>
+
+
+<script>
+
+       state=1;
+       group=0;
+       ztime=25;
+
+       function start() {       
+        
+               lx=60;
+               for(g=0;g<9;g++) {
+                       if(g==0) lx+=20;
+                       if(g==1) lx+=30;
+                       if(g==2) lx+=20;
+                       if(g==3) lx+=15;
+                       if(g==4) lx+=20;
+                       if(g==5) lx+=20;
+                       if(g==6) lx+=25;
+                       if(g==7) lx+=40;
+                       if(g==8) lx+=12;
+                       for(s=1;s<7;s++) {
+                               document.getElementById("a"+g+""+s).style.left=lx+"px";
+                               document.getElementById("a"+g+""+s).style.top=60+"px";
+                       }
+               }
+               setTimeout("statezoomer()",ztime);
+        }
+        
+        
+        function statezoomer() {
+                document.getElementById("a"+group+""+state).style.visibility="hidden";
+                state++;
+                document.getElementById("a"+group+""+state).style.visibility="visible";
+                // basic counter
+                if(state==6) {
+                        group++;
+                        state=1;
+                }
+                if(group!=9) {
+                        setTimeout("statezoomer()",ztime);
+                }
+                else {
+                        document.getElementById("factory_mask").style.visibility="visible";                      
+                        document.getElementById("tittle").style.visibility="visible";
+                        // state here is deprecated 
+                        state=0;                        
+                        setTimeout("movediv()",20);
+                }
+        }
+
+
+        function movediv() {
+                moveBy("factory_mask",0,-8);
+                state++;
+                if(state<40) {
+                        setTimeout("movediv()",20);
+                }
+                else {
+                        start2();
+                }
+        }
+
+        i=1;
+        st=1;
+
+	function moveBy(id,x,y) { 
+		var l = parseInt(document.getElementById(id).style.left);
+		var t = parseInt(document.getElementById(id).style.top);
+		l+=x;
+		t+=y;
+		document.getElementById(id).style.left=l+"px";
+		document.getElementById(id).style.top=t+"px";
+	} 
+
+        function start2() {
+                moveBy("tp6",-160,-110);
+                moveBy("tp5",-160,-10);
+                moveBy("tp4",-160,50);
+                moveBy("tp3",-160,79);
+                moveBy("tp2",-160,93);
+                moveBy("tp1",-160,93);
+                setTimeout("stepmove()",50);             
+        }
+
+        function stepmove() {
+                document.getElementById("tp"+st).style.visibility="visible";
+                if(st<6) {
+                        st++;
+                        setTimeout("stepmove()",50);
+                }
+                else {
+                        setTimeout("bstart()",6000);
+                }
+        }
+
+        function bstart() {
+                //window.location="tour.html";
+        }
+
+</script>
+
+</body></html>

@@ -1,0 +1,61 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>  
+  <title>Editor Demo Inline HTML+JavaScript inline</title>
+  <link rel="stylesheet" media="screen,projection,tv" href="inline.css" />
+  <script src="inline.js"></script>
+</head>
+<body>
+
+  <h1>Inline Demo Editor HTML+JavaScript</h1>
+
+<p>
+<button onclick='gen()' >Rodar</button>
+</p>
+
+<textarea id='text' cols='60' rows='30'>
+<html>
+<head>
+<script>
+
+var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+window.requestAnimationFrame = requestAnimationFrame;
+
+
+//var tempo = window.mozAnimationStartTime;  // For Firefox
+var tempo = new Date().getTime();
+
+var r=0;
+
+function animar(tempo2) {
+      if(tempo2-tempo>20) { 
+          document.getElementById('quadrado').setAttribute("style","transform:rotate(-"+r+"deg);");
+          document.getElementById('quadrado').setAttribute("style","-webkit-transform:rotate(-"+r+"deg);");
+	  r+=.1;
+	  if(r<=45) {
+	      requestAnimationFrame(animar);
+	  }
+	  tempo=tempo2;
+      } else { 
+	      requestAnimationFrame(animar);
+      } 
+} 
+ 
+
+</script>
+
+</head>
+
+<body onload='animar(tempo)'>
+
+<div id='quadrado'><h1 style='font-size:250%'>Hey</h1></div>
+
+</body>
+</html>
+</textarea>
+
+<p>
+<iframe id='out' src='' ></iframe>
+</p>
+</body>
+</html>
+
