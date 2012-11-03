@@ -17,6 +17,6 @@ It's worth to mention that you may also be able to enforce the locale settings i
 ##Referências 
 
 <ul>
-<li><a href='http://askubuntu.com/questions/33025/locale-settings-are-not-right-how-can-i-reset-them'>Other approaches to solve the problem</a></li>
+<li><a href='http://askubuntu.com/questions/33025/locale-settings-are-not-right-how-can-i-reset-them'>Locale settings are not right</a></li>
 </ul>
 
