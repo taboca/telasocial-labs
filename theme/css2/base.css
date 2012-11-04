@@ -41,8 +41,8 @@ h1 a { font-size:130%; margin:0 ! important; padding:0  }
 
   .section-background-odd { 
  	background-color:#45a;font-size:120%;
-        background:-webkit-radial-gradient( 50% 120%, circle , #45a, #000);
-        background: -moz-radial-gradient( 50% 120%, circle , #45a, #000);
+        background:-webkit-radial-gradient( 50% 120%, circle , #a54, #000);
+        background: -moz-radial-gradient( 50% 120%, circle , #a54, #000);
         color:white;
   } 
 
