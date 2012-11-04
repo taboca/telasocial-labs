@@ -1,19 +1,18 @@
-This technote shows how to make a canvas-based mask on top of a video tag. 
+Esta é uma demonstração que mostra como criar uma tag de vídeo que tem um efeito tipo "máscara" em cima do vídeo — letras de fogo.
 
-## Overview of the demonstration
+## Geral da implementação
 
-To make a video mask this demonstration uses a dynamically generated text that draw in a canvas tag. The pixels for the actual text are transparent using rgba (alpha) values and a canvas is placed on top of the video tag — as simple as that. 
+São duas camadas — a primeira, do fundo, tem simplesmente a tag de vídeo. A segunda é um canvas. Neste canvas tem um texto desenhado onde a parte do texto é desenhada com RGBA (alpha) com transparência máxima, ou seja, é um plano escuro onde o texto é transparente. 
 
-## Demonstration for Firefox only ( warning ) 
+## Demonstração (para Firefox)
 
-The following demonstration is for learning only and was written for Firefox browser. 
-[Click here to see demo](video-mask)
+[Confira a demonstração](video-mask)
 
-## Author notes
+## Notas do autor
 
-If you have a porting patch for this please write to me mgalli at taboca dot com.
+Se você quiser portar esta demonstração para outros navegadores por favar envie seu patch para este artigo e demonstração. 
 
-## References
+## Referências
 
 * [Public Videos](http://alpha.publicvideos.org)
 * [MDN Canvas tag](https://developer.mozilla.org/en-US/docs/HTML/Canvas) 
