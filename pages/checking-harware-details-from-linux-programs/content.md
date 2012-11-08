@@ -16,6 +16,10 @@ There are other related files and commands such as
 
     /proc/modules
 
+## Works 
+
+Thanks to Rodrigo Cadore for helping out this project.
+
 ## References
 
 * (Where to see processor's speed and RAM memory?)[http://www.linuxforums.org/forum/miscellaneous/4154-where-see-processors-speed-ram-memory.html]
