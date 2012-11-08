@@ -22,5 +22,5 @@ Thanks to Rodrigo Cadore for helping out this project.
 
 ## References
 
-* (Where to see processor's speed and RAM memory?)[http://www.linuxforums.org/forum/miscellaneous/4154-where-see-processors-speed-ram-memory.html]
-* (Finding information about the system)[http://www.linuxtopia.org/online_books/gnu_linux_tools_guide/finding-information.html]
+* [Where to see processor's speed and RAM memory?](http://www.linuxforums.org/forum/miscellaneous/4154-where-see-processors-speed-ram-memory.html)
+* [Finding information about the system](http://www.linuxtopia.org/online_books/gnu_linux_tools_guide/finding-information.html)
