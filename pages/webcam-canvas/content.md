@@ -14,9 +14,11 @@ Use the URL.createObjectURL to find the URL so you can associate with a video ta
 ## Live manipulation with pixels from webcam (sample) 
 
 * [Check the simple webcam to canvas demo](simple)
+* [Check source code](https://github.com/taboca/telasocial-labs/tree/master/pages/webcam-canvas)
 
 ## References
 
+* [Simple Webcam to Canvas — source code](https://github.com/taboca/telasocial-labs/tree/master/pages/webcam-canvas)
 * [CamCanvas - older approach using webcam flash](http://taboca.com/p/camcanvas/)
 * [WebRtc Demos](http://www.webrtc.org/running-the-demos) 
 
