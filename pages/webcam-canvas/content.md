@@ -15,7 +15,7 @@ Use the URL.createObjectURL to find the URL so you can associate with a video ta
 
 * [Check the simple webcam to canvas demo](simple)
 
-## Referências
+## References
 
 * [CamCanvas - older approach using webcam flash](http://taboca.com/p/camcanvas/)
 * [WebRtc Demos](http://www.webrtc.org/running-the-demos) 
