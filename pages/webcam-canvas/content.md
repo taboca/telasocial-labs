@@ -2,7 +2,7 @@ This is a client side demonstration that makes pixel manipulations with data fro
  
 ## GetUserMedia
 
-This API is available now in JavaScript with modern web browsers such as Chrome ( tested with Canary .) You can this JavaScript interface to associate a callback from your code. 
+This API is available now in JavaScript with modern web browsers such as Chrome ( tested with Canary .) You can use this interface to request permission to the webcam and associate a callback in JavaScript. 
 
 If the page is served from a remote domain site, the browser will request permission to the user. When permission is granted, your registered callback should called and and a stream will be passed. 
 
