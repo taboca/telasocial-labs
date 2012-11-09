@@ -20,7 +20,15 @@ It turns out my problem was that I have replaced my Mac OS so the locale setting
     export LANGUAGE="en_US.utf8"
     export LC_ALL="en_US.utf8"
 
-It's worth to mention that you may also be able to enforce the locale settings in your Ubuntu machine so it won't depend on ssh clients connecting. See the refernece for how to do that. 
+## Force locale setting in your remote linux
+
+Another approach is to force the locale setting in your remote environment
+
+    vi /etc/default/locale 
+
+And type in your locale as desired. In my case I am using 
+
+    LANG=en_US.UTF-8
 
 ##Referências 
 
