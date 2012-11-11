@@ -24,12 +24,47 @@ O efeito gerado visual será:
     | Texto uga munda belonga |
     +-------------------------+
 
+Observe que a margem que prevalesce é a do maior elemento. 
+
+## Caso de margens negativas, vale a somatória
+
+    h1 { margin:20px } 
+    p  { margin:-20px } 
+
+O efeito gerado visual será: 
+
+    +-------------------------+
+    | Título                  |
+    +-------------------------+
+       /\ 
+       || 0 pixels 
+       \/
+    +-------------------------+
+    | Texto uga munda belonga |
+    +-------------------------+
+
+* Ainda vale lembrar que se ambas as margens forem negativas então não mais vale a somatória — daí o maior valor é utilizado. 
+
 ## Comparações 
 
 <img src='image.png' />
 
+Nos dois casos a estrutura do markup é a estrutura abaixo: 
+
+    +-------------------+
+    | h1 — Caso 1       | 
+    +-------------------+ 
+    +---------------------+  --> div pai do "p" com "texto interno.."
+    |  +---------------+  | 
+    |  | Texto interno |  | 
+    |  +---------------+  | 
+    +---------------------+ 
+ 
+So que o DIV, no caso 2, tem uma regra de estilo com 'padding:1px', que faz com que o efeito seja desligado. Existem vários casos que disabilitam o colapso de margens. 
+
 ## Casos que margin collapsing é desligado
 
+Como vimos, acima, um atributo padding, aplicado no pai do parágrafo, faz com que a 
 
 
 ## Nota do autor e observação sobre elementos transformados via CSS
