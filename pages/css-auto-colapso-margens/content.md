@@ -1,4 +1,4 @@
-Visão geral sobre o tema *colapso* de margens em CSS ou [Collapsing Margins](http://www.w3.org/TR/CSS21/box.html#collapsing-margins) que é parte da especificação CSS 2.1
+Visão geral sobre o tema de margens que entram em colapso em CSS ou [Collapsing Margins](http://www.w3.org/TR/CSS21/box.html#collapsing-margins) que é parte da especificação CSS.
 
 ## Introdução
 
@@ -24,7 +24,12 @@ O efeito gerado visual será:
     | Texto uga munda belonga |
     +-------------------------+
 
+## Comparações 
+
+<img src='image.png' />
+
 ## Casos que margin collapsing é desligado
+
 
 
 ## Nota do autor e observação sobre elementos transformados via CSS
