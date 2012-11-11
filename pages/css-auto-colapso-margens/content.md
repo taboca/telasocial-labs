@@ -84,7 +84,7 @@ Depois que a operação acima é verdadeira, então é ainda verdadeiro que entr
 
 ### Caso 2, inserção de padding no DIV faz efeito não mais se aplicar
 
-Na imagem acima, o caso 2, mostra que as margens passam a existir porque o efeito foi desligado ao se colocar padding. Abaixo veremos mais casos onde o margin collapsing passa a não mais se aplicar. Veja o exemplo: <a href='./exemplo1/index.html'>exemplo</a>.
+Na imagem acima, o caso 2, mostra que as margens passam a existir porque o efeito foi desligado ao se colocar padding. Abaixo veremos mais casos onde o margin collapsing passa a não mais se aplicar. Veja o <a href='./exemplo1/index.html'>exemplo</a>.
 
 ## Casos que margin collapsing é desligado
 
