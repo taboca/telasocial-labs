@@ -64,13 +64,13 @@ Nos dois casos a estrutura do markup é a mesma:
     +---------------+
     | h1 - Caso 1   | 
     +---------------+ 
-    +---------------------+  --> div pai do "p" com "texto interno.."
+    +---------------------+  --> DIV pai do "p" com "texto interno.."
     |  +---------------+  | 
     |  | Texto interno |  | 
     |  +---------------+  | 
     +---------------------+ 
  
-E existe este DIV que tem um parágrafo "p" aninhado, ou seja, dentro dele. Na regra de estilo temos margens aplicadas aos elementos h1 e p e não temos margens aplicadas ao elemento div. 
+E existe este DIV que tem um parágrafo "p" aninhado, ou seja, dentro dele. Na regra de estilo temos margens aplicadas aos elementos h1 e p e não temos margens aplicadas ao elemento DIV. 
 
 Neste caso é importante observamos os seguintes pontos: 
 
@@ -84,19 +84,22 @@ Depois que a operação acima é verdadeira, então é ainda verdadeiro que entr
 
 ### Caso 2, inserção de padding no DIV faz efeito não mais se aplicar
 
-Na imagem acima, o caso 2, mostra que as margens passam a existir porque o efeito foi desligado ao se colocar padding. Abaixo veremos mais casos onde o margin collapsing passa a não mais se aplicar. Veja o <a href='./exemplo1/index.html'>exemplo</a>.
+Na imagem acima, o caso 2, mostra que a margen do elemento P passa a existir porque o efeito foi desligado ao se colocar padding no DIV. Abaixo veremos mais casos onde o margin collapsing passa a não mais se aplicar. Veja o <a href='./exemplo1/index.html'>exemplo</a>.
 
 ## Casos que margin collapsing é desligado
 
-Em outro caso, <a href='./exemplo2/index.html'>exemplo 2</a> foi colocado o atributo padding no DIV mas este tem agora uma margem de 100 pixels. Neste caso, sendo o p com margem 60 e o DIV com 100, a margem total fica sendo 160. 
+Em outro caso, <a href='./exemplo2/index.html'>exemplo 2</a> foi colocado o atributo padding no DIV, que tem margem, assim como P e o H1. O padding no DIV faz com que a margem de P seja visível. Depois disso entre o elemento com aninhamentos, DIV e H1 temos a regra normal, uma delas vai estar em colapso, a menor.  
 
-Existem outros casos onde é possível remover o efeito de margens em colapso: 
+A regra geral é que o efeito se aplica se tiver toque (touch) assim casos abaixo são casos que fazem elementos não mais se tocarem: 
 
-* 
+* padding
+* bordas
+* conteúdo entre elementos 
+* Além do que foi colocado acima como inline, clear both etc
 
 ## Nota do autor e observação sobre elementos transformados via CSS
 
-Obrigado para Boris da Mozilla pela explicação (meu [bug](https://bugzilla.mozilla.org/show_bug.cgi?id=809208) ficou inválido) sobre o efeito que o Gecko faz em desligar o margin collapse para elementos transformados. 
+Se um elemento é transformado via CSS, por exemplo translate ou scale, este não mais terá sua margem em colapso em alguns navegadores. É o caso do Gecko, Mozilla Firefox — obrigado para Boris da Mozilla pela explicação (meu [bug](https://bugzilla.mozilla.org/show_bug.cgi?id=809208) ficou inválido) sobre o efeito que o Gecko faz em desligar o margin collapse para elementos transformados. 
 
 ## Referências
 
