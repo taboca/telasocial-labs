@@ -31,3 +31,6 @@ With Ubuntu 12 and uname -r = 3.0.0-12-generic so the files are
 
     http://forums.opensuse.org/english/get-technical-help-here/hardware/479822-nvidia-driver-304-43-ignoring-rotate-xorg-conf-post2498521.html
 
+## More
+
+* (Nvidia Rotation)[http://labs.telasocial.com/metamodes-rotation-nvidia/]
