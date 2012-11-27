@@ -29,10 +29,11 @@ In order to get your PHP module working you need to make sure to use the option 
 
 ## PHP 
 
-
-PHP 
+Download from 
 
 * http://www.php.net/get/php-5.4.5.tar.gz/from/a/mirror
+
+And let's make it
 
     apt-get install libxml2
     apt-get install libxml2-dev
