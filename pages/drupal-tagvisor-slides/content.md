@@ -29,6 +29,7 @@ In order to get your PHP module working you need to make sure to use the option 
 
 ## PHP 
 
+
 PHP 
 
 * http://www.php.net/get/php-5.4.5.tar.gz/from/a/mirror
@@ -40,6 +41,15 @@ PHP
     ./configure --with-apxs2=/usr/local/apache2/bin/apxs --with-mysql --with-zlib
     make
     make install
+
+You may need to install with libpng so PHP works with GD. If this is your case, then install libpng-dev: 
+
+    apt-get install libpng-dev
+
+    ./configure --with-apxs2=/usr/local/apache2/bin/apxs --with-mysql --with-zlib --with-gd --enable-gd
+    make
+    make install
+
     cp php.ini-development /usr/local/lib/php.ini
 
 ## Apache conf
