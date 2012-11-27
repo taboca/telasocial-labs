@@ -42,4 +42,27 @@ PHP
     make install
     cp php.ini-development /usr/local/lib/php.ini
 
+## Apache conf
+
+Edit your Apache configuration, httpd.conf, my installation is under /usr/local/apache2
+
+/usr/local/apache2/conf/httpd.conf
+
+    <FilesMatch "\.php$">
+      SetHandler application/x-httpd-php
+    </FilesMatch>
+
+    LoadModule php5_module        modules/libphp5.so
+
+    AddType application/x-httpd-php .php
+
+    DocumentRoot "/var/www/html"
+
+    <Directory "/var/www/html">
+      Options Indexes FollowSymLinks
+      AllowOverride None
+      Order allow,deny
+      Allow from all
+    </Directory>
+
 ## To be continued - mgalli at telasocial dot com
