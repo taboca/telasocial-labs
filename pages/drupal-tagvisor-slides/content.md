@@ -109,5 +109,6 @@ If you hit a problem related to UTF8 and template, you will certainly need to pa
 ## References
 
 * (Postgresql installation)[http://www.postgresql.org/docs/8.0/static/installation.html]
+* (Template0 for Postgresql with UTF8)[http://www.wetware.co.nz/2010/07/error-new-encoding-utf8-is-incompatible-with-the-encoding-of-the-template-database-sql_ascii/])
 
 ## To be continued - mgalli at telasocial dot com
