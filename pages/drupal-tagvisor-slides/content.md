@@ -118,11 +118,11 @@ If you hit a problem related to UTF8 and template, you will certainly need to pa
 In my case I am using Drupal 7.17 — from November 2012. Once you download you can move it to your home html files — in my case it's /var/www/html (a directory which is associated with the above httpd configuration.)
 
     tar -xzvf drupal-7.17.tar.gz  
-    cd drupal-7.17
-    mkdir /var/www/html
-    mv * /var/www/html
-
-
+    mv drupal-7.17 /var/www
+    cd /var/www
+    mv drupal-7.17 html
+  
+Make sure to preserve the .htaccess file. If you simply move files around you may lose the .htaccess file. 
 
 ## Making your Postgresql as a service
 
