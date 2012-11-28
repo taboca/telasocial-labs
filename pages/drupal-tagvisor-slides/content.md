@@ -47,7 +47,7 @@ You may need to install with libpng so PHP works with GD. If this is your case, 
 
     apt-get install libpng-dev
 
-    ./configure --with-apxs2=/usr/local/apache2/bin/apxs --with-mysql --with-zlib --with-gd --enable-gd
+    ./configure --with-apxs2=/usr/local/apache2/bin/apxs --with-pgsql --with-zlib --with-gd --enable-gd
     make
     make install
 
@@ -124,6 +124,32 @@ In my case I am using Drupal 7.17 — from November 2012. Once you download you 
   
 Make sure to preserve the .htaccess file. If you simply move files around you may lose the .htaccess file. 
 
+## Installing Drupal 
+
+Check the owner for the installed files under /var/www/html — if you are going with root (brave) you need to make sure all the files unver /var/www/html are root:root. 
+
+## Changing permissions so installer writes 
+
+    cd /var/www/html 
+    chmod a+w sites/default
+
+    cp ./sites/default/default.settings.php ./sites/default/settings.php
+
+## Run install 
+ 
+Restart your Apache2 — if you do have a script in /etc/init.d you will need to make one. I am using: 
+
+    #!/bin/bash
+    /usr/local/apache2/bin/apachectl $@
+
+## Web install
+
+Access your host with http://your server:80
+
+Remember to check the permissions after the install
+
+    chmod go-w sites/default/settings.php
+    chmod go-w sites/default
 
 ## References
 
@@ -132,6 +158,11 @@ Make sure to preserve the .htaccess file. If you simply move files around you ma
 
 ## To be continued - mgalli at telasocial dot com
 
+
+After the Drupal installation.
+
 ## Making your Postgresql as a service
 
 http://archives.postgresql.org/pgsql-php/2004-03/msg00056.php
+
+
