@@ -105,6 +105,11 @@ If you hit a problem related to UTF8 and template, you will certainly need to pa
 
     ./createdb --encoding=UTF8 --owner=postgres --template=template0 drupal
 
+## Download Drupal
+
+    http://drupal.org/project/drupal
+
+In my case I am using Drupal 7.17 — from November 2012. Once you download you can move it to your home html files — in my case it's /var/www/html (a directory which is associated with the above httpd configuration.)
 
 ## Making your Postgresql as a service
 
