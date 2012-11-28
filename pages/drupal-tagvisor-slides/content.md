@@ -76,4 +76,34 @@ Edit your Apache configuration, httpd.conf, my installation is under /usr/local/
       Allow from all
     </Directory>
 
+## Postgresql installation
+
+You can download the source from [Postgresql site](Source http://www.postgresql.org/ftp/source/v9.1.4/). Then you are ready to build:
+
+    apt-get install libreadline-dev
+    ./configure
+    make
+    make install
+
+## Postgresql configuration for Drupal
+
+    adduser postgres
+    cd /usr/local/pgsql
+    mkdir data 
+    chown -R postgres:postgres * 
+    su - postgres
+    ./initdb -D /usr/local/pgsql/data
+ 
+Next we will run postgress so we can create the DB
+
+    /usr/local/pgsql/bin/postgres -D /usr/local/pgsql/data
+    ./createdb --encoding=UTF8 --owner=postgres drupal
+
+
+## Making your Postgresql as a service
+
+## References
+
+* (Postgresql installation)[http://www.postgresql.org/docs/8.0/static/installation.html]
+
 ## To be continued - mgalli at telasocial dot com
