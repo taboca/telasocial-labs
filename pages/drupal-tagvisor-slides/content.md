@@ -86,7 +86,7 @@ So change the above with
 
 ## Postgresql installation
 
-You can download the source from [Postgresql site](Source http://www.postgresql.org/ftp/source/v9.1.4/). Then you are ready to build:
+You can download the source from (Postgresql site)[http://www.postgresql.org/ftp/source/v9.1.4/]. Then you are ready to build:
 
     apt-get install libreadline-dev
     ./configure
