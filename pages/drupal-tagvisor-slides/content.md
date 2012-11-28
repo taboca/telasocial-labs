@@ -124,7 +124,6 @@ In my case I am using Drupal 7.17 — from November 2012. Once you download you 
   
 Make sure to preserve the .htaccess file. If you simply move files around you may lose the .htaccess file. 
 
-## Making your Postgresql as a service
 
 ## References
 
@@ -132,3 +131,7 @@ Make sure to preserve the .htaccess file. If you simply move files around you ma
 * (Template0 for Postgresql with UTF8)[http://www.wetware.co.nz/2010/07/error-new-encoding-utf8-is-incompatible-with-the-encoding-of-the-template-database-sql_ascii/])
 
 ## To be continued - mgalli at telasocial dot com
+
+## Making your Postgresql as a service
+
+http://archives.postgresql.org/pgsql-php/2004-03/msg00056.php
