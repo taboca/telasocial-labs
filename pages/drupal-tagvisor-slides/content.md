@@ -99,6 +99,10 @@ Next we will run postgress so we can create the DB
     /usr/local/pgsql/bin/postgres -D /usr/local/pgsql/data
     ./createdb --encoding=UTF8 --owner=postgres drupal
 
+If you hit a problem related to UTF8 and template, you will certainly need to pass the --template=template0 which is from their documentation: 
+
+    ./createdb --encoding=UTF8 --owner=postgres --template=template0 drupal
+
 
 ## Making your Postgresql as a service
 
