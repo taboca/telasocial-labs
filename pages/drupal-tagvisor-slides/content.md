@@ -43,11 +43,13 @@ And let's make it
     make
     make install
 
-You may need to install with libpng so PHP works with GD. If this is your case, then install libpng-dev: 
+You may need to install with libpng so PHP works with GD. If this is your case, then install libpng-dev:
 
     apt-get install libpng-dev
 
-    ./configure --with-apxs2=/usr/local/apache2/bin/apxs --with-pgsql --with-zlib --with-gd --enable-gd
+Since we are installing Drupal 7 we will need to make php with the (pdo extensions)[http://php.net/manual/en/ref.pdo-pgsql.php]. This is an infra-estruture that will make the connection between PHP and Postgresql.
+
+    ./configure --with-apxs2=/usr/local/apache2/bin/apxs --with-pgsql --with-zlib --with-gd --with-pdo-pgsql 
     make
     make install
 
