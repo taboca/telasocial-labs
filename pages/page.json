@@ -2,9 +2,9 @@
   "render": "archive",
   "preview": true,
   "theme": "./frontpage.html",
-  "index": false,
+  "index": true,
   "toc": {
-    "length": 20
+    "length": 12 
   },
-  "pageLimit": 10
+  "pageLimit": 30
 }
