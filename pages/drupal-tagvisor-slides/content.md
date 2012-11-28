@@ -71,12 +71,18 @@ Edit your Apache configuration, httpd.conf, my installation is under /usr/local/
 
     DocumentRoot "/var/www/html"
 
+Note that the following will have AllowOverride All, instead of None, so that in ta further section, Drupal, you will have the Drupal files to be able to control directivies for the /var/www/html directory: 
+
     <Directory "/var/www/html">
       Options Indexes FollowSymLinks
       AllowOverride None
       Order allow,deny
       Allow from all
     </Directory>
+
+So change the above with 
+
+      AllowOverride All
 
 ## Postgresql installation
 
@@ -110,6 +116,13 @@ If you hit a problem related to UTF8 and template, you will certainly need to pa
     http://drupal.org/project/drupal
 
 In my case I am using Drupal 7.17 — from November 2012. Once you download you can move it to your home html files — in my case it's /var/www/html (a directory which is associated with the above httpd configuration.)
+
+    tar -xzvf drupal-7.17.tar.gz  
+    cd drupal-7.17
+    mkdir /var/www/html
+    mv * /var/www/html
+
+
 
 ## Making your Postgresql as a service
 
