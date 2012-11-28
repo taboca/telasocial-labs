@@ -113,6 +113,10 @@ If you hit a problem related to UTF8 and template, you will certainly need to pa
 
     ./createdb --encoding=UTF8 --owner=postgres --template=template0 drupal
 
+And the user: 
+
+    ./createuser --pwprompt --encrypted --no-createrole --no-createdb YOUR_DB_USER 
+
 ## Download Drupal
 
     http://drupal.org/project/drupal
