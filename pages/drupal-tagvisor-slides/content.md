@@ -51,6 +51,8 @@ You may need to install with libpng so PHP works with GD. If this is your case, 
     make
     make install
 
+The libphp.so file will be installed to your apache2 installation folder which is probably /usr/local/apache2/modules
+
     cp php.ini-development /usr/local/lib/php.ini
 
 ## Apache conf
