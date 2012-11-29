@@ -1,6 +1,8 @@
 This is a technote with details about a Drupal instalation compiling from source. In this project, we have used Drupal as a system to post articles and a TelaSocial component, TagVisor, to make the articles become an animated slides experience. 
 
-# This article received contributions from (johnshum)[https://github.com/johnoshum/telasocial-labs/commit/037b8b0c3bef532a8ca6647dbaee61cfacc4fa1f]
+# Contributors
+
+This article received contributions from (johnshum)[https://github.com/johnoshum/telasocial-labs/commit/037b8b0c3bef532a8ca6647dbaee61cfacc4fa1f]
 
 First, let's set up a basic LAMP-like environment. We will install and configure Apache, PostgreSQL and PHP. 
 
