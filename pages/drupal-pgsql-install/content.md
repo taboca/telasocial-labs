@@ -1,78 +1,117 @@
-This is a technote with details about installing Drupal on Ububtu. In this project, we use Drupal as a system to post articles and a TelaSocial component, TagVisor, to make the articles become an animated slide experience. 
+This is a technote with details about installing Drupal on Ububtu. We're using the latest version as of this writing, 12.10-desktop.  All major components are installed and configured from source.  In this project, we use Drupal as a platform to post articles, as a TelaSocial component, TagVisor, to make the articles become an animated slide experience. 
 
+## LIVE NOTE&mdash;This article has a bounty program associated with it. If you are willing to participate you will get a your name here and also a reward.  If you accept the terms and conditions, please visit the project at [Amazon mTurk](https://www.mturk.com/mturk/searchbar?selectedSearchType=hitgroups&requesterId=A2R9MB4V6CG1WY)
 
-## LIVE NOTE — This article has a bounty program associated with it. If you are willing to participate you will get a your name here and also a reward.  If you accept the terms and conditions, please visit the project at [Amazon mTurk](https://www.mturk.com/mturk/searchbar?selectedSearchType=hitgroups&requesterId=A2R9MB4V6CG1WY)
-
-First, let's set up the basic Drupal environment. We will install and configure Apache, PostgreSQL and PHP. 
+First, let's set up a basic LAMP-like environment. We will install and configure Apache, PostgreSQL and PHP. 
 
 ## Apache
 
-In this project we use the Apache Web Server and build it from the source code. 
+In this project we use the Apache Web Server and build it from the source code.  You'll need the "Apache Portable Runtime," and from the same page, "APR-util.".
 
-Download it from
+### Download
+<http://apr.apache.org/download.cgi>
 
-* http://httpd.apache.org/download.cgi
+<http://httpd.apache.org/download.cgi>
 
 Make sure your system is able to build it: 
 
-* apt-get install build-essentials
+    apt-get install build-essential
  
-On my system I uncompressed the tarball to the following directory: 
+I'd suggest you create a build directory to download and build everything, for instance ~/src.  Tarballs almost inevitably extract into separate directories, so you don't have to worry about things getting mixed up.
 
-    /home/marcio2/apache/httpd-2.2.22/
+`cd` into the APR directory and perform the standard install procedure, e.g.
 
-We need to use the build option '--enable-so'. This will generate an Apache server that can dynamically load .so files--libraries.  PHP and its modules will be loaded as .so files later in this article. 
+    ./configure
+    make
+    sudo make install
 
-    cd httpd-2.2.22/
+Next do APR-util.  You'll need to tell it where APR is:
+
+    ./configure --with-apr=/usr/local/apr
+    make
+    sudo make install
+
+__Note__: You should _never_ have to configure or make as root.
+
+One last thing we'll need, but won't bother compiling from source:
+
+    sudo apt-get install libpcre3 libpcre3-dev
+
+We need to use the build option '`--enable-so`'. This will generate an Apache server that can dynamically load .so files&mdash;libraries.  PHP and its modules will be loaded as .so files later in this article. 
+
+    cd httpd-2.4.3/
     ./configure --enable-so
     make
-    make install
+    sudo make install
+
+## PostgreSQL
+
+### Download
+
+<http://www.postgresql.org/ftp/source/>
+
+The latest version as of this writing is 9.2.1.  
+
+Readline makes doing things from the console more pleasant.  Then build it:
+
+    sudo apt-get install libreadline6 libreadline6-dev
+    ./configure
+    make
+    sudo make install
+
+Now set up an account that owns the databases and initialize the database:
+
+    sudo adduser --home=/var/lib/pgsql --shell=/bin/bash --disabled-password pgsql
+    sudo -u pgsql /usr/local/pgsql/bin/initdb -D /var/lib/pgsql/db
+    sudo -u pgsql /usr/local/pgsql/bin/postgres -D /var/lib/pgsql/db &
+    sudo -u pgsql /usr/local/pgsql/bin/createdb --encoding=UTF8 --owner=pgsql drupal
+
+If you have problems related to UTF8 and template, add --template=template0 to the createdb line above.
+
+Finally, create a database user for Drupal.  You'll be prompted for a password; remember it and the name (here "drupal") you choose here for the Drupal installation:
+
+
+    sudo -u pgsql /usr/local/pgsql/bin/createuser --pwprompt --encrypted --no-createrole --no-createdb drupal
+
+See the end of this article for information about making PostgreSQL a "service."
 
 ## PHP 
 
-Download it from 
+###Download
 
-* http://www.php.net/get/php-5.4.5.tar.gz/from/a/mirror
+<http://us3.php.net/get/php-5.4.9.tar.bz2/from/a/mirror>
 
-Install a few requirements, build and install it:
+PHP takes awhile to compile.  You may need to install libpng so that PHP can use GD (an image manipulation library that Drupal wants.)  We will also build with [PDO extensions](http://php.net/manual/en/ref.pdo-pgsql.php).  Install a few other requirements, build and install it:
 
-    apt-get install libxml2
-    apt-get install libxml2-dev
-    apt-get install zlib1g
-    apt-get install zlib1g-dev
-    ./configure --with-apxs2=/usr/local/apache2/bin/apxs --with-mysql --with-zlib
+    sudo apt-get install libpng12-0 libpng12-dev
+    sudo apt-get install libxml2 libxml2-dev
+    sudo apt-get install zlib1g zlib1g-dev
+    ./configure --with-apxs2=/usr/local/apache2/bin/apxs --with-pgsql --with-zlib --with-gd --with-pdo-pgsql=/usr/local/pgsql/bin
     make
-    make install
+    sudo make install
 
-You may need to install with libpng so that PHP works with GD:
+Copy over a default configuration file for PHP:
 
-    apt-get install libpng-dev
+    sudo cp php.ini-development /usr/local/lib/php.ini
 
-Since we are installing Drupal 7 we will need to build PHP with the PDO extensions (see [http://php.net/manual/en/ref.pdo-pgsql.php].)  This is the infrastructure that will make the connection between PHP and PostgreSQL.
+## Apache configuration
 
-    ./configure --with-apxs2=/usr/local/apache2/bin/apxs --with-pgsql --with-zlib --with-gd --with-pdo-pgsql 
-    make
-    make install
+Edit your Apache configuration file, httpd.conf.  It's probably somewhere like /usr/local/apache2/conf/httpd.conf.  Search for an "AddType something-or-other" section and add this stuff after it:
 
-The libphp5.so file will be installed to your Apache installation folder, which is probably /usr/local/apache2/modules.  Copy over a default configuration file for PHP:
+    AddType application/x-httpd-php .php
+    AddType application/x-httpd-php-source .phps
 
-    cp php.ini-development /usr/local/lib/php.ini
-
-## Apache conf
-
-Edit your Apache configuration file, httpd.conf.  It's probably somewhere like /usr/local/apache2/conf/httpd.conf.
-
-    <FilesMatch "\.php$">
-      SetHandler application/x-httpd-php
-    </FilesMatch>
+In case it's not already present somewhere, add (or uncomment) this next to the other LoadModule lines:
 
     LoadModule php5_module        modules/libphp5.so
 
-    AddType application/x-httpd-php .php
+Find the DocumentRoot line and change it to:
 
     DocumentRoot "/var/www/html"
 
-We need AllowOverride All rather than the defualt of None.  Drupal needs this to be able to override settings on a per-directory basis later on.
+Similarly, change all the &lt;Directory "/some/path"&gt; lines to have "/var/www/html".  Do not change other lines, like ServerRoot.
+
+We need AllowOverride All rather than the defualt of None.  Drupal needs this to be able to override settings on a per-directory basis later on.  Like this (give or take comments):
 
     <Directory "/var/www/html">
       Options Indexes FollowSymLinks
@@ -83,95 +122,61 @@ We need AllowOverride All rather than the defualt of None.  Drupal needs this to
 
 Just replace "None" with "All" there. 
 
-## PostgreSQL installation
-
-Download it from:
-
-* http://www.postgresql.org/ftp/source/v9.1.4/
-
-Readline make doing things from the console more pleasant.  Then build it:
-
-    apt-get install libreadline-dev
-    ./configure
-    make
-    make install
-
-And set up a few things:
-
-## PostgreSQL configuration for Drupal
-
-    adduser postgres
-    cd /usr/local/pgsql
-    mkdir data 
-    chown -R postgres:postgres * 
-    su - postgres
-    ./initdb -D /usr/local/pgsql/data
- 
-Create a database for Drupal:
-
-    /usr/local/pgsql/bin/postgres -D /usr/local/pgsql/data
-    ./createdb --encoding=UTF8 --owner=postgres drupal
-
-If you have problems related UTF8, templates and such, you'll need to pass --template=template0 to createbd (as per their documentation): 
-
-    ./createdb --encoding=UTF8 --owner=postgres --template=template0 drupal
-
-And. . .a databasse user: 
-
-    ./createuser --pwprompt --encrypted --no-createrole --no-createdb YOUR_DB_USER 
 
 ## Drupal Preparation
 
 Get it here:
 
-* http://drupal.org/project/drupal
+<http://drupal.org/project/drupal>
 
-Copy the untarred folder to (not in) /var/www/html:
+Copy the _contents_ of the untarred directory to (not in) /var/www/html.  If you don't, your site URL will have the directory name included in its path:
 
-    tar -xzvf drupal-7.17.tar.gz  
-    mv drupal-7.17 /var/www/html
+    tar xzvf drupal-7.17.tar.gz
+    mkdir /var/www  
+    sudo mv drupal-7.17 /var/www/html
   
-Make sure the .htaccess is still present, which it should be if you mv-ed it as above.  It might not be if you tried to copy/paste from a file browser or something. 
+Make sure the .htaccess is still present in /var/www/html, which it should be if you mv-ed it as above.  It might not be if you tried to copy/paste from a file browser or something.  It's a security risk, so check.
 
 Check the owner for the files under /var/www/html--if you are going with root (brave) you need to make sure all the files under /var/www/html are root:root. 
+
+    sudo chown -R root:root /var/www/html
 
 This is important, so Drupal can record settings during installation:
 
     cd /var/www/html 
-    chmod a+w sites/default
-
-    cp ./sites/default/default.settings.php ./sites/default/settings.php
+    sudo cp ./sites/default/default.settings.php ./sites/default/settings.php
+    sudo chmod -R a+w sites/default
 
 Restart Apache--if you don't have a script in /etc/init.d, you will need to make one, e.g., something like: 
 
     #!/bin/bash
     /usr/local/apache2/bin/apachectl $@
 
+and make it executable.  Then do
+
+    service script_name restart
+
 ## Drupal Installation
 
-Use any browser and go to http://your_host_name:80,
+Use any browser and go to http://localhost or http://your_host_name:80,
 
 It should be pretty self-explanatory.
 
 After the install, be sure to make the settings file unwritable again:
 
-    chmod go-w sites/default/settings.php
-    chmod go-w sites/default
+    sudo chmod go-w sites/default sites/default/settings.php
 
 ## References
 
 * [Postgresql installation](http://www.postgresql.org/docs/8.0/static/installation.html)
 * [Template0 for Postgresql with UTF8](http://www.wetware.co.nz/2010/07/error-new-encoding-utf8-is-incompatible-with-the-encoding-of-the-template-database-sql_ascii/)
 
-## To be continued - mgalli at telasocial dot com
+## Making PostgreSQL a service
 
+As it stands, the instructions in this article will have Apache running as a "service," so that it can be set to start and stop automatically with the system, but not so for PostgreSQL.  (PHP doesn't need to be started or stopped this way, as it's just called upon as needed.)  The answer is simple; we just need a script like the one that was suggested for Apache above.  Create the following in /etc/init.d:
 
-After the Drupal installation.
+    #!/bin/bash
+    
+    su -c "/usr/local/pgsql/bin/pg_ctl $@ -D /var/lib/pgsql/db -l /var/lib/pgsql/bd/serverlog" pgsql
 
-## Making your PostgreSQL as a service
-
-Instead of compiling PostgreSQL, you can apt-get install it and it already comes as a service.
-
-http://archives.postgresql.org/pgsql-php/2004-03/msg00056.php
-
-
+and make it executable.
