@@ -1,5 +1,8 @@
 This is a technote with details about a Drupal instalation. In this project, we have used Drupal as a system to post articles and a TelaSocial component, TagVisor, to make the articles become an animated slides experience. 
 
+
+## LIVE NOTE — This article has a bounty program associated with it. If you are willing to participate you will get a your name here and also a reward if you are to accept the terms and conditions please visit the project at [Amazon mTurk here](https://www.mturk.com/mturk/searchbar?selectedSearchType=hitgroups&requesterId=A2R9MB4V6CG1WY)
+
 First let's get the basic environment so your Drupal works. We will need Apache2, Postgresql, PHP and configurations to these systems. 
 
 ## Apache2
