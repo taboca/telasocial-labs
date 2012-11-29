@@ -1,7 +1,6 @@
-This is a technote with details about a Drupal instalation. In this project, we have used Drupal as a system to post articles and a TelaSocial component, TagVisor, to make the articles become an animated slides experience. 
+This is a technote with details about a Drupal instalation compiling from source. In this project, we have used Drupal as a system to post articles and a TelaSocial component, TagVisor, to make the articles become an animated slides experience. 
 
-
-## LIVE NOTE — This article has a bounty program associated with it. If you are willing to participate you will get a your name here and also a reward if you are to accept the terms and conditions please visit the project at [Amazon mTurk here](https://www.mturk.com/mturk/searchbar?selectedSearchType=hitgroups&requesterId=A2R9MB4V6CG1WY)
+# This article received contributions from (johnshum)[https://github.com/johnoshum/telasocial-labs/commit/037b8b0c3bef532a8ca6647dbaee61cfacc4fa1f]
 
 First let's get the basic environment so your Drupal works. We will need Apache2, Postgresql, PHP and configurations to these systems. 
 
@@ -165,13 +164,13 @@ Remember to check the permissions after the install
 * (Postgresql installation)[http://www.postgresql.org/docs/8.0/static/installation.html]
 * (Template0 for Postgresql with UTF8)[http://www.wetware.co.nz/2010/07/error-new-encoding-utf8-is-incompatible-with-the-encoding-of-the-template-database-sql_ascii/])
 
-## To be continued - mgalli at telasocial dot com
+## Making PostgreSQL a service
 
+As it stands, the instructions in this article will have Apache running as a "service," so that it can be set to start and stop automatically with the system, but not so for PostgreSQL.  (PHP doesn't need to be started or stopped this way, as it's just called upon as needed.)  The answer is simple; we just need a script like the one that was suggested for Apache above.  Create the following in /etc/init.d:
 
-After the Drupal installation.
+    #!/bin/bash
+    su -c "/usr/local/pgsql/bin/pg_ctl $@ -D /var/lib/pgsql/db -l /var/lib/pgsql/bd/serverlog" pgsql
 
-## Making your Postgresql as a service
-
-http://archives.postgresql.org/pgsql-php/2004-03/msg00056.php
+and make it executable.
 
 
