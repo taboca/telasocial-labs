@@ -65,6 +65,8 @@ Readline makes doing things from the console more pleasant.  Then build it:
 Now set up an account that owns the databases and initialize the database:
 
     sudo adduser --home=/var/lib/pgsql --shell=/bin/bash --disabled-password pgsql
+    cd /usr/local/pgsql
+    chown -R pgsql:pgsql * 
     sudo -u pgsql /usr/local/pgsql/bin/initdb -D /var/lib/pgsql/db
     sudo -u pgsql /usr/local/pgsql/bin/postgres -D /var/lib/pgsql/db &
     sudo -u pgsql /usr/local/pgsql/bin/createdb --encoding=UTF8 --owner=pgsql drupal
