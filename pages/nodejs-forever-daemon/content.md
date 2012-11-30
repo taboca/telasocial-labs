@@ -1,5 +1,7 @@
 This is  development technote and it explains how to setup forever for NodeJS and to make it a daemon — so to have it call your NodeJS application when your linux server is restarted. 
 
+THIS TECHNOTE IS UNDER CONTRIBUTION MODE — IT"S OPEN TO DEVELOPERS AND IT HAS A BOUNTY PROGRAM – the bounty prize and contribution statement of work is hosted at the [mechanical turk developers account]() 
+
 NodeJS is based in the [JavaScript V8](http://code.google.com/p/V8) from Chrome and it's good for a range of kinds of applications and it brings JavaScript to the server. Applications written with NodeJS will be event driver. As an example, if you want to create a file, you dispatch a call and later a callback function will be called so that's how you know the file was created. This is a good model so your app won't be stuck and waiting for execution of events.
 
 ## NodeJS install requirements 
@@ -57,6 +59,10 @@ data: uid  command script  forever pid  logfile uptime
 ## Notes about logs and system messages
 
 Forever will keep the logs and system stdout and error messages in a file that is associated with your process. Look for a ".forever" hidden directory under the user which you have Forever installed. 
+
+## More to come 
+
+### How to make your "forever app" to be launched in boot time using the /etc/init.d in your Linux. 
 
 ## References
 
