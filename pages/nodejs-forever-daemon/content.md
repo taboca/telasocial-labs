@@ -72,7 +72,7 @@ forever now says something like:
     [0] Bce7 node    test.js 33483   33484 /Users/marciogalli/.forever/Bce7.log 0:0:0:51.143 
 
 
-## Notes about logs and system messages
+## Note about logs and system messages
 
 forever keeps logs, stdout and stderr messages in a file associated with your process.  Look for the hidden .forever directory in the home directory of the user you ran forever as. 
 
