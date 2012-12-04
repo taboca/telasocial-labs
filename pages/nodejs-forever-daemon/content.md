@@ -114,6 +114,14 @@ esac
 
 exit 0
 ```
+And setup for the run levels with 
+
+    update-rc.d nodeup defaults
+
+Or if you want to remove
+ 
+    update-rc.d -f nodeup remove
+
 
 ## References
 
