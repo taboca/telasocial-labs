@@ -84,10 +84,35 @@ If you've installed forever and Node.js system-wide (so that they are located so
     start on startup
     exec forever start /full/path/to/test.js
 
+## For the /etc/init.d (Debian) 
+
+If you have Devian and not upstart, you will need to write a script under the /etc/init.d and this script will need to take care of $1 first arguments, for example start / stop: 
+
+#! /bin/sh
+# /etc/init.d/nodeup
+#
+
+case "$1" in
+  start)
+    exec forever start /full/path/to/test.js
+
+    ;;
+  stop)
+    exec forever stop /full/path/to/test.js
+    ;;
+  *)
+    echo "Usage: /etc/init.d/nodeup {start|stop}"
+    exit 1
+    ;;
+esac
+
+exit 0
+
 ## References
 
 * [Keep a node.js server up with Forever](http://blog.nodejitsu.com/keep-a-nodejs-server-up-with-forever)
 * [node.js as a simple web server](http://stackoverflow.com/questions/6084360/node-js-as-a-simple-web-server)
 * [Node Packaged Modules](http://npmjs.org/)
 * [nodejitsu / forever](https://github.com/nodejitsu/forever)
+* [Making scripts run at bootime with Debian](http://www.debian-administration.org/articles/28)
 
