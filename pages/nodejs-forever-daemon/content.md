@@ -88,6 +88,7 @@ If you've installed forever and Node.js system-wide (so that they are located so
 
 If you have Devian and not upstart, you will need to write a script under the /etc/init.d and this script will need to take care of $1 first arguments, for example start / stop: 
 
+'''
 #! /bin/sh
 # /etc/init.d/nodeup
 #
@@ -105,6 +106,7 @@ case "$1" in
     exit 1
     ;;
 esac
+'''
 
 exit 0
 
