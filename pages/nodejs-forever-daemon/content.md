@@ -45,6 +45,11 @@ Then run:
 
     node test.js
 
+Note: With Debian, you may have to enter the following into the console to get this to work:
+
+    export PATH=$PATH:/usr/local/bin
+    export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
+
 Point your browser to http://127.0.0.1:8124.  It should simply say "testing. . ."  Now you use forever to manage your application:
 
     forever start test.js
@@ -79,46 +84,46 @@ forever keeps logs, stdout and stderr messages in a file associated with your pr
 
 ## Making your forever app launch at boot
 
+### Ubuntu
 If you've installed forever and Node.js system-wide (so that they are located somewhere in $PATH), you can have your app started by forever at system-boot using Ubuntu's upstart.  All you need to do is create a file named something like myapp.conf in /etc/init with the following contents:
 
     start on startup
     exec forever start /full/path/to/test.js
 
-## For the /etc/init.d (Debian) 
+### Debian
 
-If you have Devian and not upstart, you will need to write a script under the /etc/init.d and this script will need to take care of $1 first arguments, for example start / stop: 
+You will need to create a script in the directory /etc/init.d.  The most basic script handles at least the arguments "start" and "stop."
 
-```
-#! /bin/sh
-# /etc/init.d/nodeup
-#
+    #!/bin/sh
+    #/etc/init.d/nodeup
+    
+    export PATH=$PATH:/usr/local/bin
+    export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
+    
+    case "$1" in
+      start)
+      exec forever start --sourceDir=/path/to/directory/containing/script.js script.js scriptarguments
+      ;;
+    stop)
+      exec forever stop --sourceDir=/path/to/directory/containing/script.js script.js
+      ;;
+    *)
+      echo "Usage: /etc/init.d/nodeup {start|stop}"
+      exit 1
+      ;;
+    esac
+    
+    exit 0
 
-# Check your node install path 
+Make the script executable:
 
-export PATH=$PATH:/usr/local/bin
-export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
+    chmod 755 /etc/init.d/nodeup
 
-case "$1" in
-  start)
-    exec forever start --sourceDir=/home/scriptDir script.js scriptarguments
-    ;;
-  stop)
-    # this may not work — I had to use forever stopall bug?
-    exec forever stop --sourceDir=/home/scriptDir script.js scriptarguments
-    ;;
-  *)
-    echo "Usage: /etc/init.d/nodeup {start|stop}"
-    exit 1
-    ;;
-esac
-
-exit 0
-```
-And setup for the run levels with 
+And set it to go up and down with the system via Debian's update-rc.d:
 
     update-rc.d nodeup defaults
 
-Or if you want to remove
+Stop it from coming up with:
  
     update-rc.d -f nodeup remove
 
@@ -129,5 +134,5 @@ Or if you want to remove
 * [node.js as a simple web server](http://stackoverflow.com/questions/6084360/node-js-as-a-simple-web-server)
 * [Node Packaged Modules](http://npmjs.org/)
 * [nodejitsu / forever](https://github.com/nodejitsu/forever)
-* [Making scripts run at bootime with Debian](http://www.debian-administration.org/articles/28)
+* [Making scripts run at boot time with Debian](http://www.debian-administration.org/articles/28)
 
