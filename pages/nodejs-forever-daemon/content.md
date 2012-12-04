@@ -95,11 +95,10 @@ If you have Devian and not upstart, you will need to write a script under the /e
 
 case "$1" in
   start)
-    exec forever start /full/path/to/test.js
-
+    exec forever start --sourceDir=/home/scriptDir script.js scriptarguments
     ;;
   stop)
-    exec forever stop /full/path/to/test.js
+    exec forever stop --sourceDir=/home/scriptDir script.js scriptarguments
     ;;
   *)
     echo "Usage: /etc/init.d/nodeup {start|stop}"
