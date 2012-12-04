@@ -1,4 +1,4 @@
-This documentation refers to enterprise WIFI solutions implemented based in various use cases. 
+This documentation refers to enterprise WIFI solutions implemented based in various use cases. This article has a bounty program assoiated with it — if you send a valid contribution we will integrate it and provide a compensation: [LabsBounty](https://www.mturk.com/mturk/searchbar?selectedSearchType=hitgroups&searchWords=labs.telasocial.com&minReward=0.00&x=0&y=0) 
 
 ## WIFI using 802.1X - contribution from PTI 
 
