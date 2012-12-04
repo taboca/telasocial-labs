@@ -93,11 +93,17 @@ If you have Devian and not upstart, you will need to write a script under the /e
 # /etc/init.d/nodeup
 #
 
+# Check your node install path 
+
+export PATH=$PATH:/usr/local/bin
+export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
+
 case "$1" in
   start)
     exec forever start --sourceDir=/home/scriptDir script.js scriptarguments
     ;;
   stop)
+    # this may not work — I had to use forever stopall bug?
     exec forever stop --sourceDir=/home/scriptDir script.js scriptarguments
     ;;
   *)
@@ -105,9 +111,9 @@ case "$1" in
     exit 1
     ;;
 esac
-```
 
 exit 0
+```
 
 ## References
 
