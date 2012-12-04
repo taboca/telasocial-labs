@@ -1,5 +1,6 @@
-This is a development technote that explains how to setup [forever](https://github.com/nodejitsu/forever) with a Node.js app so it runs like a daemon on Ubuntu Linux.  forever will automatically start the Node.js application when your Linux server starts and ensure it stays running. 
+This is a development technote that explains how to setup [forever](https://github.com/nodejitsu/forever) with a Node.js app so it runs like a daemon on Ubuntu Linux. Forever will automatically start the Node.js application when your Linux server starts and ensure it stays running. This article received a great review and contribution from [Johnoshum](https://github.com/johnoshum).
 
+# Overview 
 
 Node.js is built on Chrome's [V8 JavaScript Engine](http://code.google.com/p/V8).  It's useful for a range of applications and it brings JavaScript to the server.  Applications written in Node.js are event-driven.  For example, if you wanted to create a file, you would provide a callback function to be called upon the file's successful creation.  In this sort of model, your app doesn't become stuck waiting for events to finish executing.
 
