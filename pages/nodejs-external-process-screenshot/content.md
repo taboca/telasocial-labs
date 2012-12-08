@@ -52,9 +52,15 @@ In this section we will show how to use Forever API to launch a process. Notice 
 
 ## Screenshot script
 
+In this section we will need to cover the notes so that the developer user can actually get xwd working — required installations with Debian and so on. 
+
     https://github.com/taboca/TelaSocial-Mediator/blob/master/scripts/screenshots/index.sh
 
 ## Making it work in boot time 
+
+Deleteme - Notice that many scripts end up failing because many developers fail to add right documentation based in real tests. So, for example, when running a nodeapp from /etc/init.d it's important to properly state paths and whatever other requirements. 
+
+Deleteme - As an example, we have understood, in article http://labs.telasocial.com/nodejs-forever-daemon/, that informing --sourceDir is key. I believe that this is going to be the case too since our node app needs to call a script under it's path. 
 
 ## References
 
