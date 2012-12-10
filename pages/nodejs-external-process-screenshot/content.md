@@ -34,7 +34,7 @@ Make it executable:
 
 ## The Node.js app
 
-We'll do this in two ways&mdash;using forever-monitor, then built-in Node.js functionality to spawn the screen shot script.  Both cases will make use of the [node-static](https://github.com/cloudhead/node-static) file server.
+We'll do this in two ways&mdash;using forever-monitor, then built-in Node.js functionality, to spawn the screen shot script.  Both cases will make use of the [node-static](https://github.com/cloudhead/node-static) file server.
 
 ### Requirements
 * [forever](https://github.com/nodejitsu/forever)
@@ -49,7 +49,7 @@ We'll do this in two ways&mdash;using forever-monitor, then built-in Node.js fun
   $ sudo npm install -g node-static
 ```
 
-### Using forever-monitor
+### Using forever-monitor (`screenshot-fm.js`)
 
 ``` js
     // Set path to where you're putting your sources.  No trailing slash!
@@ -82,9 +82,61 @@ We'll do this in two ways&mdash;using forever-monitor, then built-in Node.js fun
     }).listen(8080);
 ```
 
-TODO:
+Be sure to set the path at the top.
 
-### Using built-in Node.js functionality
+
+### Using built-in Node.js functionality (`screenshot-n.js`)
+
+``` js
+    // Set path to where you're putting your sources.  No trailing slash!
+    var path = '/home/mu/screenshot';
+    
+    var http = require('http');
+    var static = require('node-static');
+    var spawn = require('child_process').spawn;
+    var sys = require('sys');
+    
+    var fileServer = new static.Server(path, { cache: 0, headers: { 'X-TelaSocial': 'hi' } });
+    
+    http.createServer(function (request, response) {
+        request.addListener('end', function () {
+            spawn('bash', [ path + '/screenshot.sh' ], { cwd: path, stdio: 'inherit' }).on('exit', function () {
+                fileServer.serve(request, response, function (err, result) {
+                    if (err) { // There was an error serving the file
+                        if (request.url != "/favicon.ico") {
+                            sys.error("> Error serving " + request.url + " - " + err.message);
+                        }
+                        // Respond to the client
+                        response.writeHead(err.status, err.headers);
+                        response.end();
+                    } else {
+                        sys.puts("> " + request.url + " served successfully");
+                    }
+                });
+            });
+        });
+    }).listen(8080);
+```
+
+As you can see, the two versions are almost the same.  Node.js alone seems to need a little more configuration of the process's environment to get the image in the right place and report to stdout.
+
+
+## Running the application
+
+You should now be able to run the application from any directory.  Assuming you've place things in /home/you/screenshot, run from anywhere:
+
+``` bash
+  $ node /full/path/to/screenshot-n.js
+```
+
+(or `screenshot-fm.js`, as the case may be.)  I recommend not running as root.  Setting up a new, non-privileged user for the sole purpose of running applications like this is probably a good idea, and it helps keep things organized.
+
+Finally, if you want to ensure your app stays running, that's what `forever` is for.  It will start the application just like `node`, but will bring it back up if it dies and allow you to monitor it:
+
+``` bash
+  $ forever /full/path/to/screenshot-fm.js
+```
+
 
 ## Making it work in boot time 
 
