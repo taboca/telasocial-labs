@@ -153,7 +153,13 @@ Deleteme - Notice that many scripts end up failing because many developers fail 
 
 Deleteme - As an example, we have understood, in article http://labs.telasocial.com/nodejs-forever-daemon/, that informing --sourceDir is key. I believe that this is going to be the case too since our node app needs to call a script under it's path. 
 
+
 ## References
 
-
+* [Node.js](http://nodejs.org/)
+* [TelaSocial-Mediator](https://github.com/taboca/TelaSocial-Mediator)
+* [Node.js app with forever running as a service daemon](http://labs.telasocial.com/nodejs-forever-daemon/)
+* [forever](https://github.com/nodejitsu/forever)
+* [forever-monitor](https://github.com/nodejitsu/forever-monitor)
+* [node-static](https://github.com/cloudhead/node-static)
 
