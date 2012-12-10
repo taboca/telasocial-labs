@@ -125,7 +125,7 @@ As you can see, the two versions are almost the same.
 
 ## Running the application
 
-You should now be able to run the application from any directory.  Assuming you've place things in /home/you/screenshot, run from anywhere:
+You should now be able to run the application from any directory.  Assuming you've placed things in /home/you/screenshot, run from anywhere:
 
 ``` bash
   $ node /full/path/to/screenshot-n.js
@@ -142,12 +142,14 @@ Finally, if you want to ensure your app stays running, that's what (regular) `fo
 **Note:**  On some systems (at least Debian), you may have to set an environment variable to tell Node.js where its modules are, both in scripts and from the command line:
 
 ``` bash
-  $ export NODE_PATH:/usr/local/lib/node_modules:$NODE_PATH
+  $ export NODE_PATH="/usr/local/lib/node_modules:$NODE_PATH"
 ```
 
 You should now be able to visit [http://localhost:8080/current.png](http://localhost:8080/current.png), and the image will update every time you revisit.
 
 ## Making it work in boot time 
+
+(I got this, Marcio; just want to work some bugs out of it.)
 
 Deleteme - Notice that many scripts end up failing because many developers fail to add right documentation based in real tests. So, for example, when running a nodeapp from /etc/init.d it's important to properly state paths and whatever other requirements. 
 
