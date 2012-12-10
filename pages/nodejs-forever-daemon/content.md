@@ -28,7 +28,6 @@ forever can be installed using npm.  npm should have been installed as part of N
 
     sudo npm -g install forever
 
-
 ## Running a sample app 
 
 Create the file test.js with the following contents:
@@ -94,6 +93,8 @@ If you've installed forever and Node.js system-wide (so that they are located so
 ### Debian
 
 You will need to create a script in the directory /etc/init.d.  The most basic script handles at least the arguments "start" and "stop."
+
+You will need to pass the "-p" path so Forever can setup a working directory where it keeps information about running processes. Without this directory your app may fail when it needs to restart or if you need to run the stop action.
 
     #!/bin/sh
     #/etc/init.d/nodeup
