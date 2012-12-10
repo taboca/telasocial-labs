@@ -1,34 +1,45 @@
-This technote shows a NodeJS application that launches a separated shell script that takes screenshots using xwd tool. Our use case it's a system that can take screenshots and can serve the PNG image to an end user. This is not a full-feature screen control solution — it's a simple http fetch X screenshot app. 
+This technote describes a bare-bones Node.js application that launches a shell script that takes screenshots using [xwd](http://www.xfree86.org/current/xwd.1.html). The application will simply serve a PNG image of the server's desktop as it appears at the current time.
 
 ## Introduction
 
-## NodeJS simple web server
+There are four basic parts to the application:
 
-### require requirements
+* A simple Node.js webserver using [node-static](https://github.com/cloudhead/node-static).
+* A method of launching the external process.  Two possibilities will be discussed.
+* The screenshot script (i.e., the external process to be run.)
+* Setting the application up to start at boot time.
 
-    https://github.com/taboca/TelaSocial-Mediator/blob/master/mediator.js#L49-L51
+## A simple Node.js webserver
 
-    // Using CloudHead node static 
-    // https://github.com/cloudhead/node-static
-    // var file = new(static.Server)('.', { cache: 7200, headers: {'X-Hello':'World!'} });
+[node-static](https://github.com/cloudhead/node-static) can be installed via npm:
 
-    var file = new(static.Server)('.', { cache: 00, headers: {'X-TelaSocial':'hi'} });
+    npm install -g node-static.
 
-    http.createServer(function (req, res) {
+Then create your main Node.js script:
 
-      req.addListener('end', function () {
-        file.serve(req, res, function (err, res) {
-            if (err) { 
-                sys.error("> Error serving " + req.url + " - " + err.message);
-                response.writeHead(err.status, err.headers);
-                response.end();
-            } else { // The file was served successfully
-                sys.puts("> " + req.url + " - " + res.message);
-            }
+    var static = require('node-static');
+    var http = require('http');
+    var sys = require('sys');
+
+    var fileServer = new static.Server('./', { cache: 0, headers: { 'X-TelaSocial': 'hi' } });
+
+    http.createServer(function (request, response) {
+        request.addListener('end', function () {
+            fileServer.serve(request, response, function (err, result) {
+                if (err) { // There was an error serving the file
+                    if (request.url != "/favicon.ico") {
+                        sys.error("> Error serving " + request.url + " - " + err.message);
+                    }
+                    // Respond to the client
+                    response.writeHead(err.status, err.headers);
+                    response.end();
+                } else {
+                    sys.puts("> " + request.url + " served successfully");
+                }
+            });
         });
-      });
+    }).listen(8080);
 
-    }).listen(8888);
 
 Notice we pass the *request* to the static.Serve, file.serve(req, this will make this server attempt to serve anything that the user enters. So, for example, if the user types
 
