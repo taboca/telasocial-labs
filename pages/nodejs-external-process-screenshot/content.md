@@ -145,7 +145,7 @@ Finally, if you want to ensure your app stays running, that's what (regular) `fo
   $ export NODE_PATH:/usr/local/lib/node_modules:$NODE_PATH
 ```
 
-You should now be able to visit [http://localhost:8080/current.png], and the image will update every time you revisit.
+You should now be able to visit [http://localhost:8080/current.png](http://localhost:8080/current.png), and the image will update every time you revisit.
 
 ## Making it work in boot time 
 
