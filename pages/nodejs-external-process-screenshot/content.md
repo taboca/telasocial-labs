@@ -186,7 +186,7 @@ In order to avoid running the server as root, I've split the usual init scripts 
     exit 0
 ```
 
-Edit `APP_NAME` and `APP_DIR` and place it with the file in the project directory.
+Edit `APP_NAME` and `APP_DIR` and place it with the other files in the project directory, and make it executable.
 
 ### Debian
 
@@ -211,7 +211,7 @@ Edit `APP_NAME` and `APP_DIR` and place it with the file in the project director
 su -c "/home/mu/screenshot/run.sh $1" mu
 ```
 
-Copy this into `/etc/init.d`; name it whatever you want.  Enable it at boot-time with
+Copy this into `/etc/init.d`; name it whatever you want and make the edits described in the comments.  Enable it at boot-time with
 
 ``` bash
   $ insserv node_screenshot
