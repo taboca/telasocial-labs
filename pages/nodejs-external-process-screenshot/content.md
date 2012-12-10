@@ -11,7 +11,7 @@ There are four basic parts to the application:
 * Setting the application up to start at boot time.
 
 
-## A simple Node.js webserver (_screenshot.js_)
+## A simple Node.js webserver (`screenshot.js`)
 
 [node-static](https://github.com/cloudhead/node-static) can be installed via npm:
 
@@ -64,7 +64,7 @@ to something like
     var fileServer = new static.Server('/some/other/path', { cache: 0, headers: { 'X-TelaSocial': 'hi' } });
 ```
 
-## The screenshot script (screenshot.sh)
+## The screenshot script (`screenshot.sh`)
 
 This is the easiest part.  It requires [xwd](http://www.xfree86.org/current/xwd.1.html) and [ImageMagick](http://www.imagemagick.org/script/index.php) to be installed on your system.  Both are almost certainly available as packages for you distribution.  Here's the script; save it and make it executable in the same place as `screenshot.js`:
 
@@ -80,7 +80,19 @@ This is the easiest part.  It requires [xwd](http://www.xfree86.org/current/xwd.
 
 ### Using Forever 
 
+For this case, we'll use forever to run [TelaSocial Mediator](https://github.com/taboca/TelaSocial-Mediator), which will in turn fetch and cache the image, keeping it up-to-date for `screenshot.js`.  Make sure you have a few things:
 
+``` bash
+  $ sudo npm install -g forever
+  $ sudo npm install -g xml2js
+  $ sudo npm install -g ftp-server
+```
+
+Download or clone Mediator.  If you have git, it's probably easiest to _cd_ into the directory with _screenshot.js_ and do:
+
+``` bash
+  $ git clone https://github.com/taboca/TelaSocial-Mediator
+```
 
 
 
