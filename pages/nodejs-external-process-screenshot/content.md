@@ -1,22 +1,27 @@
 This technote describes a bare-bones Node.js application that launches a shell script that takes screenshots using [xwd](http://www.xfree86.org/current/xwd.1.html). The application will simply serve a PNG image of the server's desktop as it appears at the current time.
 
+
 ## Introduction
 
 There are four basic parts to the application:
 
 * A simple Node.js webserver using [node-static](https://github.com/cloudhead/node-static).
-* A method of launching the external process.  Two possibilities will be discussed.
 * The screenshot script (i.e., the external process to be run.)
+* A method of launching the external process.  Two possibilities will be discussed.
 * Setting the application up to start at boot time.
 
-## A simple Node.js webserver
+
+## A simple Node.js webserver (_screenshot.js_)
 
 [node-static](https://github.com/cloudhead/node-static) can be installed via npm:
 
-    npm install -g node-static.
+``` bash
+  $ sudo npm install -g node-static.
+```
 
 Then create your main Node.js script:
 
+``` js
     var static = require('node-static');
     var http = require('http');
     var sys = require('sys');
@@ -39,33 +44,45 @@ Then create your main Node.js script:
             });
         });
     }).listen(8080);
+```
 
+**Note:** The script, as written, will attempt to serve anything the user requests in the request part of the URL; everything after the hostname and port will be mapped directly to directories and file names.
 
-Notice we pass the *request* to the static.Serve, file.serve(req, this will make this server attempt to serve anything that the user enters. So, for example, if the user types
+For instance, the URL
 
-    http://localhost:8888/static/image.png
+    http://localhost:8080/stuff/image.png
 
-You will need to place an image in the ./static directory under this application relative path. 
+requires the directory `stuff` containing `image.png` to be in the same directory as the `screenshot.js`. This can be customized by changing the line
 
-## Calling an external process
+``` js
+    var fileServer = new static.Server('./', { cache: 0, headers: { 'X-TelaSocial': 'hi' } });
+```
 
+to something like
 
-### Using standard NodeJS approach
+``` js
+    var fileServer = new static.Server('/some/other/path', { cache: 0, headers: { 'X-TelaSocial': 'hi' } });
+```
 
+## The screenshot script (screenshot.sh)
+
+This is the easiest part.  It requires [xwd](http://www.xfree86.org/current/xwd.1.html) and [ImageMagick](http://www.imagemagick.org/script/index.php) to be installed on your system.  Both are almost certainly available as packages for you distribution.  Here's the script; save it and make it executable in the same place as `screenshot.js`:
+
+``` bash
+    #!/bin/bash
+    export DISPLAY=:0.0
+    xwd -root | convert - current.png
+```
+
+## Launching the external process
+
+### Using builtin Node.js
 
 ### Using Forever 
 
-In this section we will show how to use Forever API to launch a process. Notice forever has options that are different from the standard way of launching a process with NodeJS.
 
-    https://github.com/taboca/TelaSocial-Mediator/blob/master/mediator.js#L278-L287
 
-#### Requirements npm install forever 
 
-## Screenshot script
-
-In this section we will need to cover the notes so that the developer user can actually get xwd working — required installations with Debian and so on. 
-
-    https://github.com/taboca/TelaSocial-Mediator/blob/master/scripts/screenshots/index.sh
 
 ## Making it work in boot time 
 
