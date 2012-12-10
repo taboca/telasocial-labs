@@ -147,13 +147,81 @@ Finally, if you want to ensure your app stays running, that's what (regular) `fo
 
 You should now be able to visit [http://localhost:8080/current.png](http://localhost:8080/current.png), and the image will update every time you revisit.
 
-## Making it work in boot time 
 
-(I got this, Marcio; just want to work some bugs out of it.)
+## Daemonizing at system boot with forever
 
-Deleteme - Notice that many scripts end up failing because many developers fail to add right documentation based in real tests. So, for example, when running a nodeapp from /etc/init.d it's important to properly state paths and whatever other requirements. 
+In order to avoid running the server as root, I've split the usual init scripts into two pieces.  The main work is done by a `run.sh` script that goes in the same directory as the rest of the project, and it's run by a normal user.  The system init scripts, run by root, basically just change user and call it.
 
-Deleteme - As an example, we have understood, in article http://labs.telasocial.com/nodejs-forever-daemon/, that informing --sourceDir is key. I believe that this is going to be the case too since our node app needs to call a script under it's path. 
+`run.sh` is the same on all systems:
+
+``` bash
+    #!/bin/bash
+    
+    # Change APP_NAME and APP_DIR.
+    APP_NAME="screenshot-n.js"
+    APP_DIR="/home/mu/screenshot"
+    
+    # Change nothing below this line.
+    # ------------------------------
+    if [[ $EUID -ne 0 ]]
+      then
+        case "$1" in
+          start | stop | restart)
+            export PATH="/usr/local/bin:$PATH"
+            export NODE_PATH="/usr/local/lib/node_modules:$NODE_PATH"
+            pushd "$APP_DIR"
+            forever "$1" "$APP_NAME"
+            popd
+            ;;
+          *)
+            echo "Usage: $0 {start|stop|restart}" >&2
+            exit 1
+            ;;
+        esac
+      else
+        echo "Please run as a not-root user."
+        exit 1
+    fi
+    
+    exit 0
+```
+
+Edit `APP_NAME` and `APP_DIR` and place it with the file in the project directory.
+
+### Debian
+
+``` bash
+#!/bin/bash
+
+# Change "Provides" to match the file name (not strictly necessary),
+# and Short-Description and Description to whatever you want.
+
+### BEGIN INIT INFO
+# Provides:          node_screenshot
+# Required-Start:    $all
+# Required-Stop:
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: node_screenshot
+# Description:       run node_screenshot with forever
+### END INIT INFO
+
+# Change this path to wherever you put run.sh, and "mu" to the name of the
+# user on the systems who owns and will be running the app.
+su -c "/home/mu/screenshot/run.sh $1" mu
+```
+
+Copy this into `/etc/init.d`; name it whatever you want.  Enable it at boot-time with
+
+``` bash
+  $ insserv node_screenshot
+```
+
+(or whatever you named the file.)  Disable with the `-r` switch.
+
+### Ubuntu
+
+#TODO
 
 
 ## References
