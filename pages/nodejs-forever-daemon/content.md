@@ -103,10 +103,10 @@ You will need to create a script in the directory /etc/init.d.  The most basic s
     
     case "$1" in
       start)
-      exec forever start --sourceDir=/path/to/directory/containing/script.js script.js scriptarguments
+      exec forever --sourceDir=/path/to/directory/containing_script -p /path/to/forever/pidetcfiles script.js scriptarguments
       ;;
     stop)
-      exec forever stop --sourceDir=/path/to/directory/containing/script.js script.js
+      exec forever stop --sourceDir=/path/to/directory/containing_script script.js
       ;;
     *)
       echo "Usage: /etc/init.d/nodeup {start|stop}"
