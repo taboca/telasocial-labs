@@ -64,7 +64,7 @@ We'll do this in two ways&mdash;using forever-monitor, then built-in Node.js fun
     
     http.createServer(function (request, response) {
         request.addListener('end', function () {
-            forever.start([ 'bash', path + '/screenshot.sh' ], { max: 1 }).on('exit', function () {
+            forever.start([ 'bash', path + '/screenshot.sh' ], { max: 1, cwd: path }).on('exit', function () {
                 fileServer.serve(request, response, function (err, result) {
                     if (err) { // There was an error serving the file
                         if (request.url != "/favicon.ico") {
@@ -82,7 +82,7 @@ We'll do this in two ways&mdash;using forever-monitor, then built-in Node.js fun
     }).listen(8080);
 ```
 
-Be sure to set the path at the top.
+**Note:**  Be sure to set the path at the top.
 
 
 ### Using built-in Node.js functionality (`screenshot-n.js`)
@@ -118,7 +118,9 @@ Be sure to set the path at the top.
     }).listen(8080);
 ```
 
-As you can see, the two versions are almost the same.  Node.js alone seems to need a little more configuration of the process's environment to get the image in the right place and report to stdout.
+As you can see, the two versions are almost the same.
+
+**Note:**  Again, don't forget to set the path at the top.
 
 
 ## Running the application
@@ -131,12 +133,19 @@ You should now be able to run the application from any directory.  Assuming you'
 
 (or `screenshot-fm.js`, as the case may be.)  I recommend not running as root.  Setting up a new, non-privileged user for the sole purpose of running applications like this is probably a good idea, and it helps keep things organized.
 
-Finally, if you want to ensure your app stays running, that's what `forever` is for.  It will start the application just like `node`, but will bring it back up if it dies and allow you to monitor it:
+Finally, if you want to ensure your app stays running, that's what (regular) `forever` is for.  It will start the application just like `node`, but will bring it back up if it dies and allow you to monitor it:
 
 ``` bash
   $ forever /full/path/to/screenshot-fm.js
 ```
 
+**Note:**  On some systems (at least Debian), you may have to set an environment variable to tell Node.js where its modules are, both in scripts and from the command line:
+
+``` bash
+  $ export NODE_PATH:/usr/local/lib/node_modules:$NODE_PATH
+```
+
+You should now be able to visit [http://localhost:8080/current.png], and the image will update every time you revisit.
 
 ## Making it work in boot time 
 
