@@ -1,5 +1,4 @@
-In this technote, we'll build a simple Node.js application that spawns an external process.  We'll cover two different ways of doing that.  The external process will be a shell script that takes a screen shot of the server's root window.  We'll set up a file server to serve the image.  Finally, we'll set up our application to run at system boot.
-
+In this technote, we'll build a simple Node.js application that spawns an external process.  We'll cover two different ways of doing that.  The external process will be a shell script that takes a screen shot of the server's root window.  The application will also have a local web server to serve the image.  Finally, we'll set up our application to run at system boot.
 
 ## Introduction
 
@@ -237,7 +236,6 @@ exec su -c "/home/mu/screenshot/run.sh start" mu
 
 Create this script as something like `/etc/init/node_screenshot.conf`, make the change mentioned in the comments and make it executable. 
 
-
 ## References
 
 * [Node.js](http://nodejs.org/)
@@ -247,3 +245,6 @@ Create this script as something like `/etc/init/node_screenshot.conf`, make the 
 * [forever-monitor](https://github.com/nodejitsu/forever-monitor)
 * [node-static](https://github.com/cloudhead/node-static)
 
+## Authors
+
+This article was designed based in code from TelaSocial Mediator by Marcio Galli, and it was mostly rewritten by [Chris Mazey](https://github.com/cjmazey).
