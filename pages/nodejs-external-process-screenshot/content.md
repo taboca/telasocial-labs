@@ -247,4 +247,4 @@ Create this script as something like `/etc/init/node_screenshot.conf`, make the 
 
 ## Authors
 
-This article was designed based in code from TelaSocial Mediator by Marcio Galli, and it was mostly rewritten by [Chris Mazey](https://github.com/cjmazey).
+This article was originally designed based in code from TelaSocial Mediator by Marcio Galli. 
