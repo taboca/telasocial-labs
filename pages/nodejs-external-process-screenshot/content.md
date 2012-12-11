@@ -235,7 +235,7 @@ stop on shutdown
 exec su -c "/home/mu/screenshot/run.sh start" mu
 ```
 
-Create this script as something like `/etc/init/node_screenshot`, make the change mentioned in the comments and make it executable. 
+Create this script as something like `/etc/init/node_screenshot.conf`, make the change mentioned in the comments and make it executable. 
 
 
 ## References
