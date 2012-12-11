@@ -186,7 +186,7 @@ In order to avoid running the server as root, I've split the usual init scripts 
     exit 0
 ```
 
-Edit `APP_NAME` and `APP_DIR` and place it with the other files in the project directory, and make it executable.
+Edit `APP_NAME` and `APP_DIR`, place it with the other files in the project directory and make it executable.
 
 ### Debian
 
@@ -221,7 +221,21 @@ Copy this into `/etc/init.d`; name it whatever you want and make the edits descr
 
 ### Ubuntu
 
-#TODO
+``` bash
+# node_screenshot
+
+# Change the description to whatever you like.
+description     "node_screenshot"
+
+start on startup
+stop on shutdown
+
+# Change this path to wherever you put run.sh, and "mu" to the name of the
+# user on the systems who owns and will be running the app.
+exec su -c "/home/mu/screenshot/run.sh start" mu
+```
+
+Create this script as something like `/etc/init/node_screenshot`, make the change mentioned in the comments and make it executable. 
 
 
 ## References
