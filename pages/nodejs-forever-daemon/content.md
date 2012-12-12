@@ -129,6 +129,9 @@ Stop it from coming up with:
  
     update-rc.d -f nodeup remove
 
+## Notes
+
+Note that if you use 'exec' it will run the script as the current process. So if you want multiple executions you may want to drop using exec. Let's say you want to launch multiple forever scripts. 
 
 ## References
 
