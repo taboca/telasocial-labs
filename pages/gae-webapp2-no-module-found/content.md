@@ -39,3 +39,7 @@ And this file will need to set a "app" object as shown in the following example:
 
         app = webapp2.WSGIApplication([('/', MainPage)])
 
+
+## References 
+
+* (AppEngine migrating from Python)[http://www.hipatic.com/2012/11/appengine-migrating-from-python-25-to.html]
