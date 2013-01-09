@@ -7,14 +7,14 @@ We would like to gather some local developers ( you can come from as far as you 
 
 ## Related Seasonal 
 
-It's important to pay attention about some of the things Mozilla is coordinating in 2013 first quarter. Last week I spoke with Diana (@mozilla) an employee that works with marketing and her team is organizing what apps are going to be demoed in the upcoming (mobile event in Barcelona)[http://www.mobileworldcongress.com/keynote-speakers/]. 
+It's important to pay attention about some of the things Mozilla is coordinating in 2013 first quarter. Last week I spoke with Diana (@mozilla) an employee that works with marketing and her team is organizing what apps are going to be demoed in the upcoming [Mobile World Congress in Barcelona](http://www.mobileworldcongress.com/keynote-speakers/). 
 
 * Mobile World Congress — expect Mozilla to say launch related news and apps to be demoed
 * 
 
 ## Resources
 
-* (Firefox OS Simulator Add-on)[https://addons.mozilla.org/en-US/firefox/addon/firefox-os-simulator/] is a separated process and you can get the actual B2G in your desktop — this is probably an approach to take and change Gecko chrome for the braves in the web app that want to be closer to the 'chrome'. 
+* [Firefox OS Simulator Add-on](https://addons.mozilla.org/en-US/firefox/addon/firefox-os-simulator/) is a separated process and you can get the actual B2G in your desktop — this is probably an approach to take and change Gecko chrome for the braves in the web app that want to be closer to the 'chrome'. 
 
 ## pt-BR marcio's post
 
