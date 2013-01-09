@@ -1,5 +1,9 @@
 This article is about Boot to Gecko and Mozilla and it's been updated for an upcoming event in São Carlos — to try out and test and learn and inspect Mozilla's Boot 2 Gecko in São Carlos Brazil — TBD for January 11th 2013
 
+## Page repo 
+
+The repository to this page [is git here](https://github.com/taboca/telasocial-labs/tree/master/pages/boot-to-gecko-mashing). 
+
 ## Intro
 
 We would like to gather some local developers ( you can come from as far as you want ) to talk and test boot to gecko with a view that is not so tied to Mozilla community topics or priorization. This is a kind of a Hack and Do Whatever You Like free form event. 
