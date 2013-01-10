@@ -177,7 +177,7 @@ As it stands, the instructions in this article will have Apache running as a "se
 
     #!/bin/bash
     
-    su -c "/usr/local/pgsql/bin/pg_ctl $@ -D /var/lib/pgsql/db -l /var/lib/pgsql/bd/serverlog" pgsql
+    su -c "/usr/local/pgsql/bin/pg_ctl $@ -D /var/lib/pgsql/db -l /var/lib/pgsql/db/serverlog" pgsql
 
 and make it executable.
 
