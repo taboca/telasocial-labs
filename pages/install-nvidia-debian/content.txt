@@ -5,6 +5,8 @@ This case refers to nvidia proprietary driver that needs to be downloaded from t
 The link to the download, and agreements page is
 
     http://www.nvidia.com/object/linux-display-ia32-295.40-driver.html 
+     
+You may also want to visit the [nVidia Linux drivers page](http://www.nvidia.com/object/unix.html)
 
 ### Requirements 
 
