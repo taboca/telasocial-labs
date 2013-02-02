@@ -1,0 +1,24 @@
+The Firefox OS Simulator is a Firefox Add-on application. It downloads about [?] 30MB of data and it will being a B2G for Deskop binary file. The add-on application has code that seats in the Firefox side and it talks with B2B binary via http. This experiment is an exercise that was done at the Firefox camp in Sao Paulo during the Campus Party. Our goal was to bypass Firefox OS Simulator Add-on interface and simply call the B2G application from the command line. This is an FAQ interview style article. 
+
+## Firefox OS Simulator via the Command Line 
+
+Marcio — What is the Firefox OS Simulator and what is for? 
+
+Marcio — How the Firefox OS Simulator talks wtich B2G 
+
+Marcio — Is it possible to call the Firefox OS Simulator from the command line? 
+
+Marcio — What is missing when you do with the commad line
+
+Marcio — What needs to be done to create a web app code in the B2G via command line? 
+
+Marcio — Is it possible to monitor JS console and what is the debug story? 
+
+Marcio — Is it possible to run tests for an application? 
+
+Marcio — The parts made by hand, can we do something about it to automate? 
+Could projects like Marionete started from the command line, Python?, to control
+the Firefox OS to install and test apps? 
+
+
+
