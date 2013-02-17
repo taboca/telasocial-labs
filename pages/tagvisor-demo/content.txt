@@ -1,0 +1,23 @@
+This documentation showcases an overview of TagVisor Library project with demonstration, video examples, and pointer to project resources. 
+
+## Introduction
+
+TagVisor is an open-source JavaScript project, and library, that supports the crreation of zoom-based presentations and other visual effects. The script can be attached to a web page and it will transform the page in a visual narrative, thus enabling creative productions based in existing web pages. TagVisor was primarily developed to support web-based digital signage solution — it came of [http://www.telasocial.com](TelaSocial project). 
+
+## Project link and references
+
+* [TagVisor Library project](https://github.com/taboca/TagVisor)
+* [TelaSocial Social-aware Dashboard / Digital Signage](http://www.telasocial.com)
+* [Conductor demonstration video for the prototype 2011](http://vimeo.com/25874279)
+
+## 10 min demo for WWW 2013 
+
+The following demonstration was created for WWW 2013 event and it uses materials and use cases from the TelaSocial project. 
+
+<iframe width="420" height="315" src="http://www.youtube.com/embed/RywZs6jNhQA" frameborder="0" allowfullscreen></iframe>
+
+
+
+
+
+
