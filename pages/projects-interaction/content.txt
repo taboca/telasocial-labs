@@ -2,7 +2,7 @@ This documentation offers pointers to our experimental projects with interaction
 
 ## Introduction
 
-TelaSocial refers to a web-based solution that uses a browser engine to bring web content and new dynamic experiences to public and semi-public spaces. The projct suggests a lightweight and distributed approach for delivery and presentation of content in TV appliances using FULL-HD screens and using a standards-complient and Linux based infra-structure. The Web engine in use is Gecko, thus it's a Powered by Mozilla application.
+TelaSocial refers to a web-based solution that uses a browser engine to bring web content and new dynamic experiences to public and semi-public spaces. The projct suggests a lightweight and distributed approach for delivery and presentation of content in TV appliances using FULL-HD screens and using a standards-compliant and Linux based infra-structure. The Web engine in use is Gecko, thus it's a Powered by Mozilla application.
 
 This page contains references for projects that were tested as part of TelaSocial and represents experimental for in the field of interaction. 
 
