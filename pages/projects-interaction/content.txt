@@ -8,7 +8,7 @@ This page contains references for projects that were tested as part of TelaSocia
 
 ## Projects for Interaction
 
-* [Arduino based simplified hand sensor with Keyboard connectivity](http://blog.telasocial.com/tecnologia-para-interacao-gestos-simples-com) (pt-BR) 
+* [Video with our Arduino based simplified hand sensor with Keyboard connectivity](http://blog.telasocial.com/tecnologia-para-interacao-gestos-simples-com) (pt-BR) 
 * [Experimentação com Interação e Toque](http://blog.telasocial.com/experimentacao-com-interacao-e-toque) (pt-BR)
 * [Interaction Part 1](http://blog.telasocial.com/?tag=intera%C3%A7%C3%A3o) (pt-BR) 
 
