@@ -1,0 +1,17 @@
+Este projeto é um desafio e projeto tipo hacking que procura melhorar sinal 
+de antena de um mini pc que tem antena interna WIFI. 
+
+## Contribuidores
+ 
+* Marcio S. Galli 
+* Marcelo A. Rosa 
+
+## Introdução
+
+A figura abaixo mostra a antena WIFI do mini PC: 
+
+![Foto interna](wifi.jpg)
+
+
+
+
