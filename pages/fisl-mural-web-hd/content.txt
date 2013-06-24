@@ -16,9 +16,23 @@ Fazer git clone no repositório do Tela Social Mediator (aplicação node):
 
     git clone https://github.com/taboca/TelaSocial-Mediator.git
     
-Criar um diretório 'app' dentro deste:
+Baixar repo mural web fisl 
 
-    git clone https://github.com/taboca/mural-web-fisl-14/commit/f4bc8d0750fdad5a484bf0d87f6070272863b084
+    git clone https://github.com/taboca/mural-web-fisl-14
+    cd mural-web-fisl-14
+    git checkout f4bc8d0750fdad5a484bf0d87f6070272863b084
+    git reset --hard
+
+Criar link simbólico no TelaSocial Mediator, como app, para este último: 
+
+    cd ../TelaSocial-Mediator
+    ln -s ../mural-web-fisl-14 app
+
+Baixar requisitos node: 
+
+    npm install forever 
+    npm install xml2js
+    npm install node-static
 
 Executar aplicação que baixa o FISL XML e converte para json: 
  
