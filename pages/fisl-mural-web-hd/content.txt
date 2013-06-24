@@ -1,0 +1,42 @@
+Conversor de XML para JSON para o Mural Web HD do FISL que foi elaborado em parceria com o projeto Tela Social. Este episódio representa documentação básica de desenvolvimento em relação do produto que faz a conversão da grade do FISL e posterior apresentação em um componente Web. 
+
+## Grade do FISL (episódio 1)
+
+Esta é a primeira e mais importante parte do projeto, com o FISL. Trata-se do sistema que faz a manutenção dinâmica da grade do FISL. A grade atual do FISL está disponível em XML no endereço:
+
+    http://fisl.org.br/14/papers_ng/public/fast_grid?event_id=3
+    
+Usuários podem ver esta grade, por meio de navegadores Web, pois ela apresenta-se como resultado de uma transformação XSLT. O primeiro trabalho, no projeto Mural Web FISL foi em criar um conversor em NodeJS que, utilizando da biblioteca xml2js, passa para JavaScript e depois para JSON. Depois, uma vez com o JSON, a aplicação 'grid' Web do Tela Social pode ler o arquivo e apresentar a grade. 
+
+### Patches e instruções para testesi
+
+Para executar os testes você deverá ter o sistema NodeJS e dependências do projeto Tela Social mediator (xml2js, http, etc). O (patch completo deste episódio)[https://github.com/taboca/mural-web-fisl-14/commit/f4bc8d0750fdad5a484bf0d87f6070272863b084] pode ser baixado como um diretório 'app' dentro do Tela Social mediator.
+
+Fazer git clone no repositório do Tela Social Mediator (aplicação node): 
+
+    git clone https://github.com/taboca/TelaSocial-Mediator.git
+    
+Criar um diretório 'app' dentro deste:
+
+    git clone https://github.com/taboca/mural-web-fisl-14/commit/f4bc8d0750fdad5a484bf0d87f6070272863b084
+
+Executar aplicação que baixa o FISL XML e converte para json: 
+ 
+    sudo node mediator app scripts/fisl.json
+
+Executar aplicação que gera a grade do FISL visualmente: 
+
+    sudo node mediator app scripts/httpserver.json
+
+No sistema: 
+
+    Alterar data para 3 de Julho, tipo 8AM
+
+No navegador: 
+
+    http://localhost:8888/static/grid/index.html
+
+
+
+~                                                                               
+
