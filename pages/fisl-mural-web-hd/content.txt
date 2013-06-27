@@ -1,6 +1,28 @@
 Conversor de XML para JSON para o Mural Web HD do FISL que foi elaborado em parceria com o projeto Tela Social. Este episódio representa documentação básica de desenvolvimento em relação do produto que faz a conversão da grade do FISL e posterior apresentação em um componente Web. 
 
-## Grade do FISL (episódio 1)
+## Episódio 2 - Gecko no Raspbian 
+
+    apt-get install iceweasel
+    apt-get install git
+    git clone http://github.com/taboca/TelaSocial
+    cd TelaSocial
+    cd builder
+
+Do not install XULRunner, which is ./0_command.
+
+    mkdir build
+    cp -r /usr/lib/xulrunner-10.0 ./build/
+    ./1_build_installer.sh
+    ./2_install_webapp.sh
+    cd installer
+    ./0_install.sh
+    ./1_cron.sh
+
+Edit the src line to your site. 
+
+    vi /usr/lib/taboca/chrome/tagvisor/content/visor/index.html 
+
+## Grade do FISL - episódio 1
 
 Esta é a primeira e mais importante parte do projeto, com o FISL. Trata-se do sistema que faz a manutenção dinâmica da grade do FISL. A grade atual do FISL está disponível em XML no endereço:
 
