@@ -1,0 +1,34 @@
+This article supports the developer to get a Raspberry to work in vertical mode. There are many documents but also found problems to get the rotate mode to work with Raspbian. 
+
+## Requirements
+
+    Raspberry Rev A or B 
+    Raspbian OS 
+
+## Try boot/config.txt
+
+For rotate in vertical you can try: 
+
+    display_rotate=1        90 degrees
+
+## Reboot 
+
+    reboot
+
+## Test
+
+If does not work, specifically you may find this with Rev B and a lot of threads, including threads talking about Safe Mode. But simply try: 
+
+    apt-get update
+    apt-get upgrade
+
+If does not work try: 
+
+    apt-get install rpi-update
+    rpi-update
+
+If does not work 
+ 
+    Please write to me — mgalli at telasocial dot com. 
+
+
