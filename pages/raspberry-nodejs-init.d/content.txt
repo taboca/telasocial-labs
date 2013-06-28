@@ -1,0 +1,70 @@
+This article has a setup for NodeJS running in Raspberry PI with a launch script in init.d. This was tested with Rev A and B and with Raspbian. 
+
+## Install NodeJS
+
+    wget http://nodejs.org/dist/v0.10.2/node-v0.10.2-linux-arm-pi.tar.gz
+    tar xvzf node-v0.10.2-linux-arm-pi.tar.gz
+    mkdir /opt/node
+    sudo cp -r node-v0.10.2-linux-arm-pi/* /opt/node
+
+The reason we will do the path now is simply because we might test prior to the boot. If you check the init.d script, you will see it has these environment variables. 
+
+    NODE_JS_HOME="/opt/node"
+    export PATH=/opt/node/bin:$PATH
+    export NODE_PATH=$NODE_PATH:/opt/node/lib/node_modules
+
+## Install NodeJS dependencies
+
+For now we are using forever, which is an infra-estructure and library that can monitor a process in case it fails. Forever will also maintain the logs for you — see the following script, HOME system environment variable, which is where forever will add a '.forever' subdirectory. After boot, you can check that directory if you want to see potential problems: 
+
+    npm install forever -g
+
+## Init.d simplified NodeJS script
+
+    ### BEGIN INIT INFO
+    # Provides:             telasocial
+    # Required-Start:
+    # Required-Stop:
+    # Default-Start:        2 3 4 5
+    # Default-Stop:         0 1 6
+    # Short-Description:    TelaSocial Node App
+    ### END INIT INFO
+
+    export PATH=$PATH:/opt/node/bin
+    export NODE_PATH=$NODE_PATH:/opt/node/lib/node_modules
+    export HOME=/root 
+
+    case "$1" in
+      start)
+        /opt/node/bin/forever -p /root/.forever --sourceDir=/home/pi/myLaunchScriptJS
+        ;;
+      stop)
+        exec /opt/node/bin/forever stopall
+        ;;
+      *)
+
+      echo "Usage: /etc/init.d/nodeup {start|stop}"
+      exit 1
+      ;;
+    esac
+    exit 0
+
+## Copy and permissions
+
+Copy and above file to your /etc/init.d and add execution permissions to it (eg 755). 
+
+    cp telasocial /etc/init.d
+    chmod 755 /etc/init.d/telasocial
+    update-rc.d telasocial defaults
+
+
+## Reboot and test
+
+Check the /root/.forever and see files with an ID in it. You can do a tail -f to see log in real-time: 
+
+    cd /root/.forever
+    tail -f *.log
+
+## References
+
+[NodeJS application that runs as a service daemon](http://labs.telasocial.com/nodejs-forever-daemon/)
