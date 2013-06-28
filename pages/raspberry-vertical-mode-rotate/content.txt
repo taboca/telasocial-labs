@@ -31,4 +31,7 @@ If does not work
  
     Please write to me — mgalli at telasocial dot com. 
 
+## References
+
+    https://github.com/Hexxeh/rpi-update
 
