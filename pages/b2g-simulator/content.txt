@@ -1,37 +1,37 @@
-The Firefox OS Simulator is a Firefox Add-on application. It downloads about 71 MB of data and it will being a B2G for Deskop binary file. The add-on application has code that seats in the Firefox side and it talks with B2B binary via http. This experiment is an exercise that was done at the Firefox camp in Sao Paulo during the Campus Party 2013. Our goal was to bypass Firefox OS Simulator Add-on interface and simply call the B2G application from the command line. This is an FAQ interview style article. 
+The Firefox OS Simulator is a Firefox Add-on application. It downloads about 71 MB of data and it will being a B2G for Deskop binary file. The add-on application has code that seats in the Firefox side and it talks with B2B binary via http. This experiment is an exercise that was done at the Firefox camp in Sao Paulo during the Campus Party 2013. Our goal was to bypass Firefox OS Simulator Add-on interface and simply call the B2G application from the command line. This is an FAQ interview style article.
 
-## Firefox OS Simulator via the Command Line 
+## Firefox OS Simulator via the Command Line
 
 Marcio — What is the Firefox OS Simulator and what is for?
 
-Clauber - Firefox OS Simulator is a test environment for Firefox OS (looks and feels like a mobile phone). It contains the Addon-SDK and Gaia (the OS interface, whiten in HTML5, CSS3 and Javascript). 
+Clauber - Firefox OS Simulator is a test environment for Firefox OS (looks and feels like a mobile phone). It contains the Addon-SDK and Gaia (the OS interface, whiten in HTML5, CSS3 and Javascript).
 
 Marcio — How the Firefox OS Simulator talks with B2G?
 
-Clauber - 
+Clauber - Firefox OS Simulator is a Firefox Add-on, and it is an interface between Firefox (browser), Add-on SDK and Gaia (Firefox OS GUI).
 
-Marcio — Is it possible to call the Firefox OS Simulator from the command line? 
+Marcio — Is it possible to call the Firefox OS Simulator from the command line?
 
-Clauber - 
+Clauber -
 
 Marcio — What is missing when you do with the commad line
 
-Clauber - 
+Clauber -
 
-Marcio — What needs to be done to create a web app code in the B2G via command line? 
+Marcio — What needs to be done to create a web app code in the B2G via command line?
 
-Clauber - 
+Clauber -
 
-Marcio — Is it possible to monitor JS console and what is the debug story? 
+Marcio — Is it possible to monitor JS console and what is the debug story?
 
-Clauber - 
+Clauber -
 
-Marcio — Is it possible to run tests for an application? 
+Marcio — Is it possible to run tests for an application?
 
-Clauber - 
+Clauber -
 
-Marcio — The parts made by hand, can we do something about it to automate? 
+Marcio — The parts made by hand, can we do something about it to automate?
 Could projects like Marionete started from the command line, Python?, to control
-the Firefox OS to install and test apps? 
+the Firefox OS to install and test apps?
 
-Clauber - 
+Clauber -
