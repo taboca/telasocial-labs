@@ -1,5 +1,13 @@
 Conversor de XML para JSON para o Mural Web HD do FISL que foi elaborado em parceria com o projeto Tela Social. Este episódio representa documentação básica de desenvolvimento em relação do produto que faz a conversão da grade do FISL e posterior apresentação em um componente Web. 
 
+## Episódio 3 - Grade e títulos 
+
+Esquema Title Cloud 
+![Grade de eventos com Tela Social efeito Title Cloud](telasocial_fisl_title_cloud.png)
+
+Esquema Titles plain
+![Title plain grade eventos TelaSocial](telasocial_fisl_title_normal.png)
+
 ## Episódio 2 - Gecko no Raspbian 
 
     apt-get install iceweasel
