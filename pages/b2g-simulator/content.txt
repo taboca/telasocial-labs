@@ -4,15 +4,15 @@ The Firefox OS Simulator is a Firefox Add-on application. It downloads about 71 
 
 Marcio — What is the Firefox OS Simulator and what is for?
 
-Clauber - Firefox OS Simulator is a test environment for Firefox OS (looks and feels like a mobile phone). It contains the Addon-SDK and Gaia (the OS interface, whiten in HTML5, CSS3 and Javascript).
+Clauber - Firefox OS Simulator (a.k.a r2d2b2g) is a test environment to webapp developers run and test their webapps for Firefox OS (it looks and feels like a mobile phone).
 
 Marcio — How the Firefox OS Simulator talks with B2G?
 
-Clauber - Firefox OS Simulator is a Firefox Add-on, and it is an interface between Firefox (browser), Add-on SDK and Gaia (Firefox OS GUI).
+Clauber - Firefox OS Simulator is a Firefox Add-on, and it's an interface that to run Mozilla Marionette (https://developer.mozilla.org/en-US/docs/Marionette), Firefox OS Gaia (https://developer.mozilla.org/en-US/docs/Mozilla/Firefox_OS/Platform/Gaia) and B2G (https://github.com/mozilla-b2g/B2G) like a mobile phone simulator.
 
 Marcio — Is it possible to call the Firefox OS Simulator from the command line?
 
-Clauber -
+Clauber - Yes, it is totally possible to use the Firefox OS Simulator structure to run it and webapps on the command line!
 
 Marcio — What is missing when you do with the commad line
 
