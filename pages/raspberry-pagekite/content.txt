@@ -1,0 +1,39 @@
+This document shows how I did the setup in order to get pagekite service working with raspberry and the necessary proxy settings to have the client to connect via 443/SSL. 
+
+## Requirements
+
+    Raspberry Rev A or B 
+    Raspbian OS 
+    Pagekite 
+
+## In the raspberry side
+
+    pagekite.py --signup
+
+Then setup your sub-domain that will serve as a means to access the specific machine: 
+
+    pagekite.py 22 ssh:2.telasocial.pagekite.me
+ 
+Make sure you check pagekite service, at www.pagekite.net, so activate your account. 
+
+## Setup the config for ssh
+
+Locate or edit a config for ssh which is ~user/.ssh/config
+
+    Host *.pagekite.me
+      CheckHostIP no
+      ProxyCommand /usr/bin/nc -X connect -x %h:443 %h %p
+
+This should make your ssh capable or connecting, via netcat, via 443 which is the port pagekite likes. Do not try to directly connect to port 22 on your subdomain with pagekite. Check the path to the 'nc' binary. 
+
+## As a daemon
+
+You may also want to enable the pagekite app as a daemon. So far what I did was to simply add the execution line: 
+
+    pagekite.py 22 ssh:2.telasocial.pagekite.me
+
+To my script in /etc/init.d/app. For additional information on /etc/init.d scripts see labs.telasocial.com
+
+
+
+
