@@ -35,6 +35,12 @@
 
 This article introduces a solution to help developers to create HTML-based grid layouts ( divs with rows and columns ) using string-based specification. As an example, a web developer can write a grid compound with 2x2 elements simply using "2,abcd". 
 
+# WWW DEMO 
+
+<a href='demo-w3c.mov'>Video Demo for WWW Conference</a>
+
+<iframe src='demo-w3c.mov' style='width:500px;height:400px'></iframe>
+
 ##Generation of tableless grid layout from strings 
 
 The above spec "2,abcd" generates the following grid: 
@@ -42,9 +48,6 @@ The above spec "2,abcd" generates the following grid:
 <div id='grid1' class='maingrid' > </div>
 
 
-# WWW DEMO 
-
-<a href='demo-w3c.mov>Video Demo for WWW Conference</a>
 
 ##The exploration for a lightweight approach to document transformations
 
