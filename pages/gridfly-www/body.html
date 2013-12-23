@@ -1,0 +1,157 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+
+<script src="vendor/jquery-min.js"></script>
+<script src="lib/grid.js"></script>
+<link media="screen, projection" type="text/css" href="lib/hdgrid.css" rel="stylesheet">
+<script>
+   $(document).ready(function () { 
+	grid('abcd',2,'grid1'); 
+	grid('abbabbccc',3,'grid2'); 
+	grid('banana',2,'grid3'); 
+   } );
+
+</script>
+<style>
+ 
+  .c { 
+	background-color:rgba(0,0,0,.5);
+	color:white;
+  } 
+
+  .c .inner { 
+        background-image: -moz-linear-gradient(to bottom right, red, black);
+	height:100%;
+	width:100%;
+  } 
+  pre { 
+    background-color:black;
+    font-size:150%;
+    font-weight:bold;
+    color:green;
+    padding:1em;
+  }
+  .maingrid { 
+    overflow:auto;
+  } 
+</style>
+
+</head>
+
+<body>
+<h1>Generation of Grid Layout using JavaScript and strings as specification</h1>
+
+<h2>Introduction</h2>
+
+This article introduces a solution to help developers to create HTML-based grid layouts ( divs with rows and columns ) using string-based specification. As an example, a web developer can write a grid compound with 2x2 elements using the following string specification: 
+
+<pre>
+ab
+cd
+</pre>
+
+<p>
+The above string can generate the following markup: 
+</p>
+
+<div id='grid1' class='maingrid' > </div>
+
+<h2>What is this for? — exploring events of transformation and higher transparency</h2>
+
+<p>First this is an experimentation but it is aimed to explore the role of events in transformation in a document that can respond based in remote or local sources. A thinking, or use case, is that a specification string functions as a compact approach to represent a transformation in a given document. So, for example "2,abcd", when present, can be considered an event of transformation that creates a square element with 4 cells. This transformation, or generation, can be applied to one ore more elements that should exist in the DOM document. The following example shows the source code for a function that makes a grid generation based in a string spec and it applies to a given DOM container named id='target':</p>
+
+<pre>
+grid('2,abcd','target');
+</pre>
+<p>
+ Today, developers can achieve all sorts of transformations to pages. The most basic case which is tied to the origins of browsers, is when a user clicks a hyper link. This case is obvious and the browser fetches the new page from the given URL and replaces the current document. Developers can also make document transformatins and create dynamic experiences because they can fetch remote data-sources with techniques referred as AJAX or inner-browsing. That is what allows a number of online web pages to create richer experiences in the sense of dynamic and connected with data-sources — this may also be referred as fluid page experiences. </p>
+
+<h2>Problem with AJAX</h2>
+
+<p>A major problem with the web today is that we do not know what happens as a document is being transformed. JavaScript toolkits and non XML solutions, such as jquery, are powerful tools to transform web pages. The more we use these tools it gives us indeed chance to creation but not always a model that a page can be easily tested, recorded, or a means for an external application to deal with all the possible transformations of a page.</p>
+
+<h2>Importance of markup preservation</h2>
+
+<p>HTML5 and other emerging technologies are bringing back a bit of semantics and markup value to our development story. As an example it is common to see a growing number of toolkits that uses plain markup as the basis to a richer transformation.  </p>
+ 
+<h2>Towards an event, via JS first</h2>
+
+<p>While the following example also uses JavaScript it is aimed towards the idea that a markup transformation is an event of transformation that can be attached to a document. So think of this as an experimental implementation that today depends on JS.  The following example has a grid specification made of plain characters and each character means a different cell:</p>
+
+<h2>Example: </h2>
+
+<pre>
+abb
+abb
+ccc
+</pre>
+
+<h2>Result in the document after a transformation</h2>
+
+<div id='grid2' class='maingrid' > </div>
+
+<h2>Another example</h2>
+
+<pre>
+ba
+na
+na
+</pre>
+
+<div id='grid3' class='maingrid' > </div>
+
+<h2>Remarks of the pilot prototype</h2>
+
+<p>This initial work ( http://github.com/taboca/TelaSocial-Grid-Type/ ) is a JS implementation and moves markup authoring complexities to the runtime, so a JavaScript algorithm is responsible for the markup generation after parsing the string. The initial benefit is that is becomes faster for authoring but it is important that you think of this as an event of transformation. Think that the actual spec achieved the DOM document based in a remote event. </p>
+
+<p>In this initial implementation you will notice that all the cells are multiple of 100px in height and weight. You can easily change this in the code but future versions should be able to get this value as an argument.</p>
+
+<h2>Grid Type library</h2>
+
+<p>The Grid Type library ( http://github.com/taboca/TelaSocial-Grid-Type/ ) works in a similar way to the above examples. You can type the spec as an argument but you have to make sure you tell the level of granularity, so for example, for 'abcd' square you want to say abcd,2. </p>
+
+<h2>Source code for the above examples</h2>
+
+<pre>
+  $(document).ready(function () { 
+	grid('abcd',2,'grid1');  // 3rd argument is the div target 
+	grid('abbabbccc',3,'grid2'); 
+	grid('banana',2,'grid3'); 
+   } );
+</pre>
+
+
+
+<h2>Related documentation</h2>
+
+<ul>
+<li><a href='http://github.com/taboca/TelaSocial-Grid-Type/'>Grid Type Library</a></li>
+<li><a href='http://dev.w3.org/csswg/css3-grid-align/#grid-template'>Grid template at W3</a></li>
+<li><a href='http://devedge-temp.mozilla.org/viewsource/2003/inner-browsing/index_en.html'>Inner-browsing Extending the Navigation Paradigm</a></li>
+<li><a href='http://www.webrtc.org'>Web Rtc</a></li>
+<li><a href='http://www.telasocial.com'>TelaSocial</a></li>
+</ul>
+
+<h2>Terms of this documentation</h2>
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Grid markup generation from strings-based spec in JS</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="www.telasocial.com" property="cc:attributionName" rel="cc:attributionURL">Marcio Galli</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="www.telasocial.com/p/d/grid-layout/index.html" rel="dct:source">www.telasocial.com/p/d/grid-layout/index.html</a>.
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-169144-26']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+</body>
+</html>
+

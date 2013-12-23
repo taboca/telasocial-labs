@@ -1,0 +1,111 @@
+
+   hashChars = new Array();
+   hashLines = new Array();
+   gCols = null;
+   gStr = null;
+
+   function grid(str,cols) { 
+        gStr = str; 
+        gCols= cols; 
+	//hashSum(gStr,gCols);
+  	var kIndex=0;
+        var maxIndex=gStr.length;
+        clusterFlip(kIndex,maxIndex,1,2);
+	$('#container').append(lineBuf);
+   } 
+    
+   var flipFlop = true;
+
+   function clusterFlip(index,range,inc,shift) { 
+	var str =gStr;
+	while(index<range) { 
+alert('made slice in ' + index);
+        	index = clusterQuery(str,index,shift,inc);
+		
+//		lineBuf+=makeRow(line,upToLine,flatBuffer,cols);
+//		line+=upToLine;
+		
+  	} 
+   } 
+    
+   function makeRow(line, upToLine, str, cols) { 
+       	//alert(line+ ' and ' + upToLine );
+	var buffCells = '';
+	var buff='<div class="gv" >';
+	for(var k = 0;k<cols;k++) { 
+	  var buffCells = '';
+          buff += '<div class="c gh180" >';
+	  for(var l = line; l<upToLine; l++) { 
+
+		var currChar = str[l*cols+k];
+
+	  	if(buffCells.indexOf(currChar)==-1) { 
+			buffCells+=currChar+',';
+			size = hashChars[currChar].split(',').length-1;;	
+          		buff+='<div class="c gv'+size+'"> ... '+currChar;
+	  		buff+='</div>';
+		} 
+  	  } 
+   	  buff+='</div>';
+	} 
+	buff+='</div>';
+	return buff;
+   } 
+
+   // For rows 
+   // index, shift  ( cols or lines ), kIndex, maxIndex = kIndex+cols;  
+
+   function clusterQuery(range,kIndex,shift,increment) { 
+alert('shift = ' + shift);
+	var hashChars = hashSum(range, shift);
+	var maxIndex = kIndex+shift; 
+	var oIndex = kIndex; 
+	var buff = '';
+	alert('max ' + maxIndex);
+	while(kIndex<maxIndex) { 
+		var cellUpToLine = hashChars[range[kIndex]];
+		alert('kIndex is ' + kIndex + ' char is ' + gStr[kIndex] + ' and reach is ' + cellUpToLine );
+		buff += gStr[kIndex];
+		if(cellUpToLine*shift>=maxIndex) { 
+
+			maxIndex=parseInt(cellUpToLine*shift)-(kIndex % shift ) +shift;
+			alert('seting max ' + maxIndex);
+		} 
+		kIndex+=increment;
+	} 
+	//alert('found flip slice in ' + oIndex + ' to ' + parseInt(kIndex-1) );
+//	clusterFlip(oIndex,parseInt(kIndex-1),parseInt(kIndex-1)/oIndex,gStr);
+	//clusterQuery(buff,0,	
+	var o = flipString(buff,buff.length/shift, shift);
+	alert(buff + ' and flipped = ' + o);
+	clusterQuery(buff, 0, buff.length/shift, 1); 
+
+        return maxIndex; 
+   }  
+
+   function flipString(inputStr, lines, cols) { 
+	var outputString='';
+	for(j=0;j<cols;j++) { 
+		for(var i=0;i<lines;i++) { 
+			outputString+=inputStr[i*cols+j];
+			
+		} 
+	} 
+	return outputString; 
+   } 
+
+   // This tells the square for each element 
+   // for example que square abcd hash['a']={x:0,y:0,w:0,h:0}  
+   function hashSum(str,cols) { 
+	var hashChars=new Array();
+	var line = 0;
+	for(k in str) { 
+		var hit = k % cols; 
+		if(hit==0) { line++ } 
+		var curr = str[k];
+		if(!hashChars[curr]) { hashChars[curr]=line; } 
+		if(line >= hashChars[curr]) { hashChars[curr]=line } 
+  	} 
+	return hashChars;
+   } 
+ 

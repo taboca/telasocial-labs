@@ -1,0 +1,45 @@
+<html>
+<head>
+
+<script src="vendor/jquery-min.js"></script>
+<script src="lib/grid.js"></script>
+<link media="screen, projection" type="text/css" href="lib/hdgrid.css" rel="stylesheet">
+<script>
+   var strdefault = 'qwabacdcfgko'; 
+   $(document).ready(function () { 
+  	try { 	
+ 	    s = document.location.toString().split('?');
+ 	    var l = s[1].split(',');
+	    var cols = parseInt(l[0]);
+	    str  = l[1];
+	    grid(str,cols) 
+	} catch(i) { 
+	   grid(strdefault,2) 
+	} 
+   } );
+
+</script>
+<style>
+ 
+  .c { 
+	background-color:rgba(0,0,0,.5);
+	color:white;
+  } 
+
+  .c .inner { 
+        background-image: -moz-linear-gradient(to bottom right, red, black);
+	height:100%;
+	width:100%;
+  } 
+
+</style>
+</head>
+<body>
+<div class='gnav'>
+  <div class='gnav' id='container'>
+
+  </div>
+</div>
+
+</body>
+</html>
