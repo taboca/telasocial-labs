@@ -35,11 +35,15 @@
 
 This article introduces a solution to help developers to create HTML-based grid layouts ( divs with rows and columns ) using string-based specification. As an example, a web developer can write a grid compound with 2x2 elements simply using "2,abcd". 
 
-# WWW DEMO (Nov 2013 Update)
+# Video demonstration for WWW 2014 (Dec 2013 Update)
 
-<a href='demo-w3c.mov'>Watch / Download Video Demo for WWW Conference (MOV)</a>
+<a href='demo-w3c.mov'>Watch or Download Video Demo for WWW Conference (MOV)</a>
 
 The above link is a short demonstration that showcases an editor using a 2D notation. The demo converts such layout notation into a model based in table-less and grid layout, which generates containers for widgets, on the left. The use case shows a panel, in HTML, on the left, which means a output (results) canvas.
+
+# Video demonstration, lower resolution, YouTube: 
+
+<iframe width="420" height="315" src="//www.youtube.com/embed/POwD5YwtT5E" frameborder="0" allowfullscreen></iframe>
 
 ##Generation of tableless grid layout from strings 
 
