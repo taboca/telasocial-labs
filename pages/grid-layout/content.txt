@@ -39,7 +39,7 @@ This article introduces a solution to help developers to create HTML-based grid 
 
 <a href='demo-w3c.mov'>Video Demo for WWW Conference</a>
 
-<iframe src='demo-w3c.mov' style='width:500px;height:400px'></iframe>
+<iframe src='demo-w3c.mov' style='width:640px;height:480px'></iframe>
 
 ##Generation of tableless grid layout from strings 
 
