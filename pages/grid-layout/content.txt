@@ -41,6 +41,11 @@ The above spec "2,abcd" generates the following grid:
 
 <div id='grid1' class='maingrid' > </div>
 
+
+# WWW DEMO 
+
+<a href='demo-w3c.mov>Video Demo for WWW Conference</a>
+
 ##The exploration for a lightweight approach to document transformations
 
 This is a highly experimental solution and is aimed to explore the role of events in transformation in a document. These transformations could be generated tied to remote or local data sources. The idea is that the string specification functions as a compact approach to represent a transformation in a given document. So, for example "2,abcd", when present, can be considered an event of transformation that creates a square element with 4 cells. This transformation, or generation, can be applied to one ore more elements that should exist in the DOM document. The following example shows the source code for a function that makes a grid generation based in a string spec and it applies to a given DOM container named id='target':
