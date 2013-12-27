@@ -33,7 +33,7 @@
   } 
 </style>
 
-This article introduces a solution to help developers to create HTML-based grid layouts ( divs with rows and columns ) using string-based specification. As an example, a web developer can write a grid compound with 2x2 elements simply using "2,abcd". 
+This article has an overview of the GridFly demo and the grid generation toolkit that allows for the creation of table-less layouts based in string ASCII specifications. This page was assembled to support the project and as a companion to the proposal demo paper. 
 
 # Video demonstration for WWW 2014 (Dec 2013 Update)
 
@@ -41,7 +41,7 @@ This article introduces a solution to help developers to create HTML-based grid 
 
 The above link is a short demonstration that showcases an editor using a 2D notation. The demo converts such layout notation into a model based in table-less and grid layout, which generates containers for widgets, on the left. The use case shows a panel, in HTML, on the left, which means a output (results) canvas.
 
-# Video demonstration, lower resolution, YouTube: 
+# YouTube version, lower resolution: 
 
 We have also uploaded this video to YouTube to facilitate. However it's a lower resolution as YouTube will transcode for size optimization. 
 
