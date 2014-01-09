@@ -45,7 +45,7 @@ The above link is a short demonstration that showcases an editor using a 2D nota
 
 We have also uploaded this video to YouTube to facilitate. However it's a lower resolution as YouTube will transcode for size optimization. 
 
-<iframe width="420" height="315" src="//www.youtube.com/embed/POwD5YwtT5E" frameborder="0" allowfullscreen></iframe>
+<iframe width="420" height="300" src="//www.youtube.com/embed/xptayV51kJg" frameborder="0" allowfullscreen></iframe>
 
 ##Generation of tableless grid layout from strings 
 
